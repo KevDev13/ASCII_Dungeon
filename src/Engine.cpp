@@ -16,7 +16,11 @@ namespace AsciiDungeon
 	const char* WINDOW_TITLE = "ASCII Dungeon";
 	const bool WINDOW_START_FULLSCREEN = false;
 
-	Engine::Engine() {}
+	Engine::Engine()
+	{
+		m_initialized = false;
+	}
+
 	Engine::~Engine()
 	{
 		TCOD_quit();
