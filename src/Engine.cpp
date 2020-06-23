@@ -45,6 +45,10 @@ namespace AsciiDungeon
 		// while window is still open
 		while (!TCODConsole::isWindowClosed())
 		{
+			TCOD_key_t key;
+
+			TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
+
 			TCODConsole::root->clear();
 			const char p = '@';
 			TCODConsole::root->putChar(10, 10, p);
