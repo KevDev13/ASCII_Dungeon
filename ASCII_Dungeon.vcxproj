@@ -19,14 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Actor.cpp" />
+    <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\asciidungeon.cpp" />
     <ClCompile Include="src\Engine.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Actor.hpp" />
+    <ClInclude Include="include\Actor.hpp" />
     <ClInclude Include="include\Engine.hpp" />
-    <ClInclude Include="Position.hpp" />
+    <ClInclude Include="include\Position.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
