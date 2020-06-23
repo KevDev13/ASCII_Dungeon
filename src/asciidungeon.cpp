@@ -10,6 +10,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 */
 
 #include "libtcod.h"
+#include "Engine.hpp"
 
 int main()
 {
