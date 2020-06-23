@@ -18,6 +18,7 @@ int main()
 {
 	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
 
+	// initialize engine and if it fails, exit
 	if (!engine->Initialize())
 	{
 		return 1;
