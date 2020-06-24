@@ -18,8 +18,14 @@ namespace AsciiDungeon
 		bool Initialize();
 		bool Main();
 
+		inline bool PlayerWantsToQuit() const { return m_playerWantsToQuit; }
+
 	protected:
 		bool m_initialized;
+		bool m_playerWantsToQuit;
+
+		void HandleInput();
+		void Render();
 	};
 
 }

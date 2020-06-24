@@ -18,6 +18,7 @@ namespace AsciiDungeon
 	Engine::Engine()
 	{
 		m_initialized = false;
+		m_playerWantsToQuit = false;
 	}
 
 	Engine::~Engine()
@@ -43,18 +44,53 @@ namespace AsciiDungeon
 		}
 
 		// while window is still open
-		while (!TCODConsole::isWindowClosed())
+		while (!TCODConsole::isWindowClosed() && !m_playerWantsToQuit)
 		{
-			TCOD_key_t key;
-
-			TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
-
-			TCODConsole::root->clear();
-			const char p = '@';
-			TCODConsole::root->putChar(10, 10, p);
-			TCODConsole::root->flush();
+			HandleInput();
+			Render();
 		}
 
 		return true;
+	}
+
+	void Engine::Render()
+	{
+		TCODConsole::root->clear();
+
+		const char p = '@';	// temp variable for character, just to display something for now
+		TCODConsole::root->putChar(10, 10, p);
+
+		TCODConsole::root->flush();
+	}
+
+	void Engine::HandleInput()
+	{
+		TCOD_key_t key;
+		//TCOD_mouse_t mouse;
+		//TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, &mouse);
+		TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
+
+		switch (key.vk)
+		{
+			// player movement (in work)
+			case TCODK_UP:
+				break;
+			case TCODK_DOWN:
+				break;
+			case TCODK_LEFT:
+				break;
+			case TCODK_RIGHT:
+				break;
+
+			// player wants to quit
+			case TCODK_ESCAPE:
+				m_playerWantsToQuit = true;
+				break;
+
+			default:
+				break;
+		}
+
+		// handle mouse input here
 	}
 }
