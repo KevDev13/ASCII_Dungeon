@@ -23,7 +23,11 @@ int main()
 	{
 		return 1;
 	}
-	engine->Main();
+
+	if (!engine->Main())
+	{
+		return 2;
+	}
 
 	return 0;
 }
