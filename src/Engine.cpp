@@ -66,10 +66,30 @@ namespace AsciiDungeon
 	void Engine::HandleInput()
 	{
 		TCOD_key_t key;
-		TCOD_mouse_t mouse;
-		TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, &mouse);
+		//TCOD_mouse_t mouse;
+		//TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, &mouse);
+		TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
 
-		// handle keyboard input here
+		switch (key.vk)
+		{
+			// player movement (in work)
+			case TCODK_UP:
+				break;
+			case TCODK_DOWN:
+				break;
+			case TCODK_LEFT:
+				break;
+			case TCODK_RIGHT:
+				break;
+
+			// player wants to quit
+			case TCODK_ESCAPE:
+				m_playerWantsToQuit = true;
+				break;
+
+			default:
+				break;
+		}
 
 		// handle mouse input here
 	}
