@@ -18,6 +18,7 @@ namespace AsciiDungeon
 	Engine::Engine()
 	{
 		m_initialized = false;
+		m_playerWantsToQuit = false;
 	}
 
 	Engine::~Engine()
@@ -43,10 +44,10 @@ namespace AsciiDungeon
 		}
 
 		// while window is still open
-		while (!TCODConsole::isWindowClosed())
+		while (!TCODConsole::isWindowClosed() && !m_playerWantsToQuit)
 		{
-			this->HandleInput();
-			this->Render();
+			HandleInput();
+			Render();
 		}
 
 		return true;
