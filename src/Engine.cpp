@@ -45,16 +45,31 @@ namespace AsciiDungeon
 		// while window is still open
 		while (!TCODConsole::isWindowClosed())
 		{
-			TCOD_key_t key;
-
-			TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
-
-			TCODConsole::root->clear();
-			const char p = '@';
-			TCODConsole::root->putChar(10, 10, p);
-			TCODConsole::root->flush();
+			this->HandleInput();
+			this->Render();
 		}
 
 		return true;
+	}
+
+	void Engine::Render()
+	{
+		TCODConsole::root->clear();
+
+		const char p = '@';	// temp variable for character, just to display something for now
+		TCODConsole::root->putChar(10, 10, p);
+
+		TCODConsole::root->flush();
+	}
+
+	void Engine::HandleInput()
+	{
+		TCOD_key_t key;
+		TCOD_mouse_t mouse;
+		TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, &mouse);
+
+		// handle keyboard input here
+
+		// handle mouse input here
 	}
 }

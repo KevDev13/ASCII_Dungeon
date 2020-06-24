@@ -20,6 +20,9 @@ namespace AsciiDungeon
 
 	protected:
 		bool m_initialized;
+
+		void HandleInput();
+		void Render();
 	};
 
 }
