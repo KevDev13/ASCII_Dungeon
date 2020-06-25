@@ -1,3 +1,3 @@
 # ASCII_Dungeon
 
-A small, ASCII dungeon crawler written using the libtcod.
+A small, ASCII dungeon crawler written using libtcod.
