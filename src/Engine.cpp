@@ -61,6 +61,7 @@ namespace AsciiDungeon
 		while (!TCODConsole::isWindowClosed() && !m_playerWantsToQuit)
 		{
 			HandleInput();
+			// eventually, NPC AI will be run here
 			if (!Render())
 			{
 				return false;
