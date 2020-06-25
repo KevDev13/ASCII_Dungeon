@@ -25,8 +25,6 @@ namespace AsciiDungeon
 		m_playerWantsToQuit = false;
 
 		m_player = std::make_unique<Actor>();
-
-		m_rootConsole = nullptr;
 	}
 
 	Engine::~Engine()
@@ -39,16 +37,13 @@ namespace AsciiDungeon
 		// init the window using SDL2
 		TCODConsole::initRoot(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, TCOD_RENDERER_SDL2);
 
-		// get pointer to root console
-		m_rootConsole = TCODConsole::root;
-
 		// temporary init for Player here
 		m_player->SetPosition(Position_t{ 10, 10 });
 		m_player->SetDisplayCharacter(PLAYER_DISPLAY_CHAR);
 
 		// set default colors
-		m_rootConsole->setDefaultBackground(DEFAULT_BACKGROUND_COLOR);
-		m_rootConsole->setDefaultForeground(DEFAULT_FOREGROUND_COLOR);
+		TCODConsole::root->setDefaultBackground(DEFAULT_BACKGROUND_COLOR);
+		TCODConsole::root->setDefaultForeground(DEFAULT_FOREGROUND_COLOR);
 
 		m_initialized = true;
 		return m_initialized;
@@ -66,6 +61,7 @@ namespace AsciiDungeon
 		while (!TCODConsole::isWindowClosed() && !m_playerWantsToQuit)
 		{
 			HandleInput();
+			// eventually, NPC AI will be run here
 			if (!Render())
 			{
 				return false;
@@ -77,19 +73,19 @@ namespace AsciiDungeon
 
 	bool Engine::Render()
 	{
-		if (!m_rootConsole)
+		if (!TCODConsole::root)
 		{
 			return false;
 		}
 
-		m_rootConsole->clear();
+		TCODConsole::root->clear();
 		// eventually here we'll have all the Render functions
-		if (!m_player->Render(m_rootConsole))
+		if (!m_player->Render(TCODConsole::root))
 		{
 			return false;
 		}
 
-		m_rootConsole->flush();
+		TCODConsole::root->flush();
 
 		return true;
 	}
