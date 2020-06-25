@@ -38,4 +38,9 @@ namespace AsciiDungeon
 	{
 		return (left.x == right.x) && (left.y == right.y);
 	}
+
+	inline bool operator!= (const Position_t& left, const Position_t& right)
+	{
+		return !(left == right);
+	}
 }
