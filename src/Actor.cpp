@@ -14,33 +14,14 @@ namespace AsciiDungeon
 	{
 		m_currentPosition.x = 0;
 		m_currentPosition.y = 0;
+
+		m_displayCharacter = ' ';
 	}
 
-	Actor::Actor(Position_t pos) :
-		m_currentPosition(pos)
+	Actor::Actor(Position_t pos, char dispCh) :
+		m_currentPosition(pos), m_displayCharacter(dispCh)
 	{
 
-	}
-
-	void Actor::MovePosition(Direction pos)
-	{
-		switch (pos)
-		{
-			case Direction::UP:
-				--m_currentPosition.y;
-				return;
-			case Direction::DOWN:
-				++m_currentPosition.y;
-				return;
-			case Direction::LEFT:
-				--m_currentPosition.x;
-				return;
-			case Direction::RIGHT:
-				++m_currentPosition.x;
-				return;
-			default:
-				break;
-		}
 	}
 
 	Actor::~Actor() {}
