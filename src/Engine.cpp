@@ -14,7 +14,10 @@ namespace AsciiDungeon
 	const int WINDOW_SIZE_WIDTH = 80;
 	const char* WINDOW_TITLE = "ASCII Dungeon";
 	const bool WINDOW_START_FULLSCREEN = false;
+
 	const char PLAYER_DISPLAY_CHAR = '@';
+	const TCODColor DEFAULT_BACKGROUND_COLOR = TCODColor::black;
+	const TCODColor DEFAULT_FOREGROUND_COLOR = TCODColor::yellow;
 
 	Engine::Engine()
 	{
@@ -22,6 +25,8 @@ namespace AsciiDungeon
 		m_playerWantsToQuit = false;
 
 		m_player = std::make_unique<Actor>();
+
+		m_rootConsole = nullptr;
 	}
 
 	Engine::~Engine()
@@ -34,9 +39,16 @@ namespace AsciiDungeon
 		// init the window using SDL2
 		TCODConsole::initRoot(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, TCOD_RENDERER_SDL2);
 
+		// get pointer to root console
+		m_rootConsole = TCODConsole::root;
+
 		// temporary init for Player here
 		m_player->SetPosition(Position_t{ 10, 10 });
 		m_player->SetDisplayCharacter(PLAYER_DISPLAY_CHAR);
+
+		// set default colors
+		m_rootConsole->setDefaultBackground(DEFAULT_BACKGROUND_COLOR);
+		m_rootConsole->setDefaultForeground(DEFAULT_FOREGROUND_COLOR);
 
 		m_initialized = true;
 		return m_initialized;
@@ -54,20 +66,32 @@ namespace AsciiDungeon
 		while (!TCODConsole::isWindowClosed() && !m_playerWantsToQuit)
 		{
 			HandleInput();
-			Render();
+			if (!Render())
+			{
+				return false;
+			}
 		}
 
 		return true;
 	}
 
-	void Engine::Render()
+	bool Engine::Render()
 	{
-		TCODConsole::root->clear();
+		if (!m_rootConsole)
+		{
+			return false;
+		}
 
-		Position_t playerPosition = m_player->GetPosition();
-		TCODConsole::root->putChar(playerPosition.x, playerPosition.y, m_player->GetDisplayCharacter());
+		m_rootConsole->clear();
+		// eventually here we'll have all the Render functions
+		if (!m_player->Render(m_rootConsole))
+		{
+			return false;
+		}
 
-		TCODConsole::root->flush();
+		m_rootConsole->flush();
+
+		return true;
 	}
 
 	void Engine::HandleInput()

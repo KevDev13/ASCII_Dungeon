@@ -27,11 +27,11 @@ namespace AsciiDungeon
 	protected:
 		bool m_initialized;
 		bool m_playerWantsToQuit;
-
 		std::unique_ptr<Actor> m_player;
+		TCODConsole* m_rootConsole;
 
 		void HandleInput();
-		void Render();
+		bool Render();
 	};
 
 }

@@ -7,6 +7,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #pragma once
 
+#include "libtcod.h"
 #include "Position.hpp"
 
 namespace AsciiDungeon
@@ -29,6 +30,8 @@ namespace AsciiDungeon
 
 		inline Position_t GetPosition() const { return m_currentPosition; }
 		inline char GetDisplayCharacter() const { return m_displayCharacter; }
+
+		bool Render(TCODConsole* root);
 
 	protected:
 		Position_t m_currentPosition;
