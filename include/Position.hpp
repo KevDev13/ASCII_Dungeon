@@ -13,4 +13,9 @@ namespace AsciiDungeon
 		int x;
 		int y;
 	};
+
+	Position_t operator+ (const Position_t& left, const Position_t& right)
+	{
+		return Position_t { left.x + right.x, left.y + right.y };
+	}
 }
