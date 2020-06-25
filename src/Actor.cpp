@@ -24,5 +24,16 @@ namespace AsciiDungeon
 
 	}
 
+	bool Actor::Render(TCODConsole* root)
+	{
+		if (!root)
+		{
+			return false;
+		}
+
+		root->setChar(m_currentPosition.x, m_currentPosition.y, m_displayCharacter);
+		return true;
+	}
+
 	Actor::~Actor() {}
 }
