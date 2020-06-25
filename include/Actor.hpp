@@ -31,7 +31,7 @@ namespace AsciiDungeon
 
 		void MovePosition(Direction dir);
 
-		Position_t GetPosition() const { return m_currentPosition; }
+		inline Position_t GetPosition() const { return m_currentPosition; }
 
 	protected:
 		Position_t m_currentPosition;
