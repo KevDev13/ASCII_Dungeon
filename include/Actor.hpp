@@ -15,9 +15,23 @@ namespace AsciiDungeon
 	{
 	public:
 		Actor();
-		Actor(int x, int y);
 		Actor(Position_t pos);
 		~Actor();
+
+		static enum class Direction
+		{
+			UP,
+			DOWN,
+			LEFT,
+			RIGHT
+		};
+
+		inline void SetPosition(Position_t pos) { m_currentPosition = pos; }
+		inline void MovePosition(Position_t pos) { m_currentPosition = m_currentPosition + pos; }
+
+		void MovePosition(Direction dir);
+
+		Position_t GetPosition() const { return m_currentPosition; }
 
 	protected:
 		Position_t m_currentPosition;

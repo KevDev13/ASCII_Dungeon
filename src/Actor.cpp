@@ -16,16 +16,31 @@ namespace AsciiDungeon
 		m_currentPosition.y = 0;
 	}
 
-	Actor::Actor(int x, int y)
-	{
-		m_currentPosition.x = x;
-		m_currentPosition.y = y;
-	}
-
 	Actor::Actor(Position_t pos) :
 		m_currentPosition(pos)
 	{
 
+	}
+
+	void Actor::MovePosition(Direction pos)
+	{
+		switch (pos)
+		{
+			case Direction::UP:
+				--m_currentPosition.y;
+				return;
+			case Direction::DOWN:
+				++m_currentPosition.y;
+				return;
+			case Direction::LEFT:
+				--m_currentPosition.x;
+				return;
+			case Direction::RIGHT:
+				++m_currentPosition.x;
+				return;
+			default:
+				break;
+		}
 	}
 
 	Actor::~Actor() {}
