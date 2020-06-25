@@ -14,11 +14,14 @@ namespace AsciiDungeon
 	const int WINDOW_SIZE_WIDTH = 80;
 	const char* WINDOW_TITLE = "ASCII Dungeon";
 	const bool WINDOW_START_FULLSCREEN = false;
+	const char PLAYER_DISPLAY_CHAR = '@';
 
 	Engine::Engine()
 	{
 		m_initialized = false;
 		m_playerWantsToQuit = false;
+
+		m_player = std::make_unique<Actor>();
 	}
 
 	Engine::~Engine()
@@ -30,6 +33,10 @@ namespace AsciiDungeon
 	{
 		// init the window using SDL2
 		TCODConsole::initRoot(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, TCOD_RENDERER_SDL2);
+
+		// temporary init for Player here
+		m_player->SetPosition(Position_t{ 10, 10 });
+		m_player->SetDisplayCharacter(PLAYER_DISPLAY_CHAR);
 
 		m_initialized = true;
 		return m_initialized;
@@ -57,8 +64,8 @@ namespace AsciiDungeon
 	{
 		TCODConsole::root->clear();
 
-		const char p = '@';	// temp variable for character, just to display something for now
-		TCODConsole::root->putChar(10, 10, p);
+		Position_t playerPosition = m_player->GetPosition();
+		TCODConsole::root->putChar(playerPosition.x, playerPosition.y, m_player->GetDisplayCharacter());
 
 		TCODConsole::root->flush();
 	}
@@ -74,12 +81,16 @@ namespace AsciiDungeon
 		{
 			// player movement (in work)
 			case TCODK_UP:
+				m_player->MoveUp();
 				break;
 			case TCODK_DOWN:
+				m_player->MoveDown();
 				break;
 			case TCODK_LEFT:
+				m_player->MoveLeft();
 				break;
 			case TCODK_RIGHT:
+				m_player->MoveRight();
 				break;
 
 			// player wants to quit

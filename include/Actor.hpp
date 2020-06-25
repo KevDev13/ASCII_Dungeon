@@ -15,11 +15,23 @@ namespace AsciiDungeon
 	{
 	public:
 		Actor();
-		Actor(int x, int y);
-		Actor(Position_t pos);
+		Actor(Position_t pos, char dispCh);
 		~Actor();
+
+		inline void SetPosition(Position_t pos) { m_currentPosition = pos; }
+		inline void Move(Position_t pos) { m_currentPosition = m_currentPosition + pos; }
+		inline void Move(int x, int y) { Move(Position_t{ x, y }); }
+		inline void SetDisplayCharacter(char ch) { m_displayCharacter = ch; }
+		inline void MoveUp() { --m_currentPosition.y; }
+		inline void MoveDown() { ++m_currentPosition.y; }
+		inline void MoveLeft() { --m_currentPosition.x; }
+		inline void MoveRight() { ++m_currentPosition.x; }
+
+		inline Position_t GetPosition() const { return m_currentPosition; }
+		inline char GetDisplayCharacter() const { return m_displayCharacter; }
 
 	protected:
 		Position_t m_currentPosition;
+		char m_displayCharacter;
 	};
 }

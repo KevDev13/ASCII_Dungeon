@@ -14,16 +14,12 @@ namespace AsciiDungeon
 	{
 		m_currentPosition.x = 0;
 		m_currentPosition.y = 0;
+
+		m_displayCharacter = ' ';
 	}
 
-	Actor::Actor(int x, int y)
-	{
-		m_currentPosition.x = x;
-		m_currentPosition.y = y;
-	}
-
-	Actor::Actor(Position_t pos) :
-		m_currentPosition(pos)
+	Actor::Actor(Position_t pos, char dispCh) :
+		m_currentPosition(pos), m_displayCharacter(dispCh)
 	{
 
 	}

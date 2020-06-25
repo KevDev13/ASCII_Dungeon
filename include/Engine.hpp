@@ -7,6 +7,10 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #pragma once
 
+#include <memory>
+
+#include "Actor.hpp"
+
 namespace AsciiDungeon
 {
 	class Engine
@@ -23,6 +27,8 @@ namespace AsciiDungeon
 	protected:
 		bool m_initialized;
 		bool m_playerWantsToQuit;
+
+		std::unique_ptr<Actor> m_player;
 
 		void HandleInput();
 		void Render();
