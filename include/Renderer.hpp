@@ -22,6 +22,9 @@ namespace AsciiDungeon
 		Renderer();
 		~Renderer();
 
+		bool RenderActors() const;
+		bool RenderGUI() const;
+		bool RenderWorld() const;
 		bool RenderAll() const;
 
 		bool AddActor(std::shared_ptr <Actor> actor);
