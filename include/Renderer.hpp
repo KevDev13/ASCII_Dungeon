@@ -23,8 +23,6 @@ namespace AsciiDungeon
 		~Renderer();
 
 		bool RenderAll() const;
-		bool RenderOnly(std::shared_ptr<Actor> actor) const;
-		bool ContainsActor(std::shared_ptr<Actor> actor) const;
 
 		bool AddActor(std::shared_ptr <Actor> actor);
 		bool RemoveActor(std::shared_ptr<Actor> actor);

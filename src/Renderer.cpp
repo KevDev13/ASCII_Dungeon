@@ -6,6 +6,8 @@ Written by Kevin Garner. kg.dev@protonmail.com
 Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 */
 
+#include <algorithm>
+
 #include "Renderer.hpp"
 
 namespace AsciiDungeon
@@ -33,6 +35,20 @@ namespace AsciiDungeon
 		m_actors.push_back(actor);
 
 		return true;
+	}
+
+	bool Renderer::RemoveActor(std::shared_ptr<Actor> actor)
+	{
+		m_actors.remove(actor);
+
+		return std::find(m_actors.begin(), m_actors.end(), actor) == m_actors.end();
+	}
+
+	bool Renderer::RemoveAll()
+	{
+		m_actors.clear();
+
+		return m_actors.size() == 0;
 	}
 
 	Renderer::~Renderer()
