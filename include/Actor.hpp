@@ -19,14 +19,15 @@ namespace AsciiDungeon
 		Actor(Position_t pos, char dispCh);
 		~Actor();
 
-		inline void SetPosition(Position_t pos) { m_currentPosition = pos; }
-		inline void Move(Position_t pos) { m_currentPosition = m_currentPosition + pos; }
-		inline void Move(int x, int y) { Move(Position_t{ x, y }); }
+		void SetPosition(Position_t pos, bool checkBoundary = true);
 		inline void SetDisplayCharacter(char ch) { m_displayCharacter = ch; }
-		inline void MoveUp() { --m_currentPosition.y; }
-		inline void MoveDown() { ++m_currentPosition.y; }
-		inline void MoveLeft() { --m_currentPosition.x; }
-		inline void MoveRight() { ++m_currentPosition.x; }
+
+		void Move(Position_t pos);
+		void Move(int x, int y);
+		void MoveUp();
+		void MoveDown();
+		void MoveLeft();
+		void MoveRight();
 
 		inline Position_t GetPosition() const { return m_currentPosition; }
 		inline char GetDisplayCharacter() const { return m_displayCharacter; }
@@ -34,5 +35,10 @@ namespace AsciiDungeon
 	protected:
 		Position_t m_currentPosition;
 		char m_displayCharacter;
+
+		bool CheckMoveBoundary(Position_t newPos);
 	};
+
+	extern const Position_t MAP_UPPER_LEFT_CORNER;
+	extern const Position_t MAP_LOWER_RIGHT_CORNER;
 }

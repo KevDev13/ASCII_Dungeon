@@ -19,6 +19,9 @@ namespace AsciiDungeon
 	const TCODColor DEFAULT_BACKGROUND_COLOR = TCODColor::black;
 	const TCODColor DEFAULT_FOREGROUND_COLOR = TCODColor::yellow;
 
+	const Position_t MAP_UPPER_LEFT_CORNER = { 1, 1 };
+	const Position_t MAP_LOWER_RIGHT_CORNER = { 15, 15 };
+
 	Engine::Engine()
 	{
 		m_initialized = false;
