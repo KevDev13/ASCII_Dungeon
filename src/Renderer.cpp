@@ -30,11 +30,6 @@ namespace AsciiDungeon
 		return true;
 	}
 
-	bool Renderer::RenderGUI() const
-	{
-		return true;
-	}
-
 	bool Renderer::RenderWorld() const
 	{
 		return true;
@@ -42,7 +37,7 @@ namespace AsciiDungeon
 
 	bool Renderer::RenderAll() const
 	{
-		return RenderGUI() && RenderWorld() && RenderActors();
+		return RenderWorld() && RenderActors();
 	}
 
 	bool Renderer::AddActor(std::shared_ptr<Actor> actor)

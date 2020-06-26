@@ -23,7 +23,6 @@ namespace AsciiDungeon
 		~Renderer();
 
 		bool RenderActors() const;
-		bool RenderGUI() const;
 		bool RenderWorld() const;
 		bool RenderAll() const;
 
