@@ -10,6 +10,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include <memory>
 
 #include "Actor.hpp"
+#include "Renderer.hpp"
 
 namespace AsciiDungeon
 {
@@ -27,7 +28,8 @@ namespace AsciiDungeon
 	protected:
 		bool m_initialized;
 		bool m_playerWantsToQuit;
-		std::unique_ptr<Actor> m_player;
+		std::shared_ptr<Actor> m_player;
+		std::unique_ptr<Renderer> m_renderer;
 
 		void HandleInput();
 		bool Render();
