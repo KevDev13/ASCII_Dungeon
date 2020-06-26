@@ -22,11 +22,13 @@
     <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\asciidungeon.cpp" />
     <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Actor.hpp" />
     <ClInclude Include="include\Engine.hpp" />
     <ClInclude Include="include\Position.hpp" />
+    <ClInclude Include="include\Renderer.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -31,8 +31,6 @@ namespace AsciiDungeon
 		inline Position_t GetPosition() const { return m_currentPosition; }
 		inline char GetDisplayCharacter() const { return m_displayCharacter; }
 
-		bool Render(TCODConsole* root);
-
 	protected:
 		Position_t m_currentPosition;
 		char m_displayCharacter;

@@ -24,7 +24,8 @@ namespace AsciiDungeon
 		m_initialized = false;
 		m_playerWantsToQuit = false;
 
-		m_player = std::make_unique<Actor>();
+		m_player = std::make_shared<Actor>();
+		m_renderer = std::make_unique<Renderer>();
 	}
 
 	Engine::~Engine()
@@ -44,6 +45,9 @@ namespace AsciiDungeon
 		// set default colors
 		TCODConsole::root->setDefaultBackground(DEFAULT_BACKGROUND_COLOR);
 		TCODConsole::root->setDefaultForeground(DEFAULT_FOREGROUND_COLOR);
+
+		// add player to Renderer
+		m_renderer->AddActor(m_player);
 
 		m_initialized = true;
 		return m_initialized;
@@ -79,11 +83,8 @@ namespace AsciiDungeon
 		}
 
 		TCODConsole::root->clear();
-		// eventually here we'll have all the Render functions
-		if (!m_player->Render(TCODConsole::root))
-		{
-			return false;
-		}
+		
+		m_renderer->RenderAll();
 
 		TCODConsole::root->flush();
 
@@ -111,6 +112,15 @@ namespace AsciiDungeon
 				break;
 			case TCODK_RIGHT:
 				m_player->MoveRight();
+				break;
+
+				// if a character was pressed
+			case TCODK_CHAR:
+				switch (key.c)
+				{
+					default:
+						break;
+				}
 				break;
 
 			// player wants to quit
