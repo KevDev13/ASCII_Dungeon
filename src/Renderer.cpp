@@ -17,7 +17,7 @@ namespace AsciiDungeon
 
 	}
 
-	bool Renderer::RenderAll() const
+	bool Renderer::RenderActors() const
 	{
 		for (auto actor = m_actors.begin(); actor != m_actors.end(); ++actor)
 		{
@@ -28,6 +28,21 @@ namespace AsciiDungeon
 		}
 
 		return true;
+	}
+
+	bool Renderer::RenderGUI() const
+	{
+		return true;
+	}
+
+	bool Renderer::RenderWorld() const
+	{
+		return true;
+	}
+
+	bool Renderer::RenderAll() const
+	{
+		return RenderGUI() && RenderWorld() && RenderActors();
 	}
 
 	bool Renderer::AddActor(std::shared_ptr<Actor> actor)
