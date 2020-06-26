@@ -114,6 +114,15 @@ namespace AsciiDungeon
 				m_player->MoveRight();
 				break;
 
+				// if a character was pressed
+			case TCODK_CHAR:
+				switch (key.c)
+				{
+					default:
+						break;
+				}
+				break;
+
 			// player wants to quit
 			case TCODK_ESCAPE:
 				m_playerWantsToQuit = true;
