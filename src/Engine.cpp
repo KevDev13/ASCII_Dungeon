@@ -10,6 +10,10 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 namespace AsciiDungeon
 {
+	const int VERSION_MAJOR = 0;
+	const int VERSION_MINOR = 0;
+	const int VERSION_BUILD = 1;
+
 	const int WINDOW_SIZE_HEIGHT = 50;
 	const int WINDOW_SIZE_WIDTH = 80;
 	const char* WINDOW_TITLE = "ASCII Dungeon";
@@ -107,6 +111,12 @@ namespace AsciiDungeon
 				TCODConsole::root->putChar(0, row, TCOD_CHAR_DVLINE);
 				TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, row, TCOD_CHAR_DVLINE);
 			}
+
+			std::string versionString = "v " + std::to_string(VERSION_MAJOR)
+				+ "." + std::to_string(VERSION_MINOR)
+				+ "." + std::to_string(VERSION_BUILD);
+
+			TCODConsole::root->printf(69, 49, versionString.c_str());
 		}
 
 		// render world and all actors
