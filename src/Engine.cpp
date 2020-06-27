@@ -10,6 +10,10 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 namespace AsciiDungeon
 {
+	const int VERSION_MAJOR = 0;
+	const int VERSION_MINOR = 0;
+	const int VERSION_BUILD = 1;
+
 	const int WINDOW_SIZE_HEIGHT = 50;
 	const int WINDOW_SIZE_WIDTH = 80;
 	const char* WINDOW_TITLE = "ASCII Dungeon";
@@ -20,7 +24,7 @@ namespace AsciiDungeon
 	const TCODColor DEFAULT_FOREGROUND_COLOR = TCODColor::yellow;
 
 	const Position_t MAP_UPPER_LEFT_CORNER = { 1, 1 };
-	const Position_t MAP_LOWER_RIGHT_CORNER = { 15, 15 };
+	const Position_t MAP_LOWER_RIGHT_CORNER = { 47, 37 };
 
 	Engine::Engine()
 	{
@@ -38,6 +42,8 @@ namespace AsciiDungeon
 
 	bool Engine::Initialize()
 	{
+		TCODConsole::setCustomFont("png/bitmap_col.png");
+
 		// init the window using SDL2
 		TCODConsole::initRoot(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, TCOD_RENDERER_SDL2);
 
@@ -86,7 +92,34 @@ namespace AsciiDungeon
 		}
 
 		TCODConsole::root->clear();
-		
+
+		// show GUI. This will eventually be it's own class
+		{
+			TCODConsole::root->putChar(0, 0, TCOD_CHAR_DNW);
+			TCODConsole::root->putChar(0, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_DSW);
+			TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, 0, TCOD_CHAR_DNE);
+			TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_DSE);
+
+			for (int col = 1; col <= MAP_LOWER_RIGHT_CORNER.x; ++col)
+			{
+				TCODConsole::root->putChar(col, 0, TCOD_CHAR_DHLINE);
+				TCODConsole::root->putChar(col, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_DHLINE);
+			}
+
+			for (int row = 1; row <= MAP_LOWER_RIGHT_CORNER.y; ++row)
+			{
+				TCODConsole::root->putChar(0, row, TCOD_CHAR_DVLINE);
+				TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, row, TCOD_CHAR_DVLINE);
+			}
+
+			std::string versionString = "v " + std::to_string(VERSION_MAJOR)
+				+ "." + std::to_string(VERSION_MINOR)
+				+ "." + std::to_string(VERSION_BUILD);
+
+			TCODConsole::root->printf(69, 49, versionString.c_str());
+		}
+
+		// render world and all actors
 		m_renderer->RenderAll();
 
 		TCODConsole::root->flush();
