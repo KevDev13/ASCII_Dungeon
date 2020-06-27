@@ -91,21 +91,21 @@ namespace AsciiDungeon
 
 		// show GUI. This will eventually be it's own class
 		{
-			TCODConsole::root->putChar(0, 0, TCOD_CHAR_NW);
-			TCODConsole::root->putChar(0, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_SW);
-			TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, 0, TCOD_CHAR_NE);
-			TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_SE);
+			TCODConsole::root->putChar(0, 0, TCOD_CHAR_DNW);
+			TCODConsole::root->putChar(0, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_DSW);
+			TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, 0, TCOD_CHAR_DNE);
+			TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_DSE);
 
 			for (int col = 1; col <= MAP_LOWER_RIGHT_CORNER.x; ++col)
 			{
-				TCODConsole::root->putChar(col, 0, TCOD_CHAR_HLINE);
-				TCODConsole::root->putChar(col, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_HLINE);
+				TCODConsole::root->putChar(col, 0, TCOD_CHAR_DHLINE);
+				TCODConsole::root->putChar(col, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_DHLINE);
 			}
 
 			for (int row = 1; row <= MAP_LOWER_RIGHT_CORNER.y; ++row)
 			{
-				TCODConsole::root->putChar(0, row, TCOD_CHAR_VLINE);
-				TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, row, TCOD_CHAR_VLINE);
+				TCODConsole::root->putChar(0, row, TCOD_CHAR_DVLINE);
+				TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, row, TCOD_CHAR_DVLINE);
 			}
 		}
 
