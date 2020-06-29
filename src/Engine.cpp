@@ -7,25 +7,10 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include "Engine.hpp"
 #include "libtcod.h"
+#include "Constants.hpp"
 
 namespace AsciiDungeon
 {
-	const int VERSION_MAJOR = 0;
-	const int VERSION_MINOR = 0;
-	const int VERSION_BUILD = 1;
-
-	const int WINDOW_SIZE_HEIGHT = 50;
-	const int WINDOW_SIZE_WIDTH = 80;
-	const char* WINDOW_TITLE = "ASCII Dungeon";
-	const bool WINDOW_START_FULLSCREEN = false;
-
-	const char PLAYER_DISPLAY_CHAR = '@';
-	const TCODColor DEFAULT_BACKGROUND_COLOR = TCODColor::black;
-	const TCODColor DEFAULT_FOREGROUND_COLOR = TCODColor::yellow;
-
-	const Position_t MAP_UPPER_LEFT_CORNER = { 1, 1 };
-	const Position_t MAP_LOWER_RIGHT_CORNER = { 47, 37 };
-
 	Engine::Engine()
 	{
 		m_initialized = false;
@@ -136,24 +121,35 @@ namespace AsciiDungeon
 
 		switch (key.vk)
 		{
-			// player movement (in work)
-			case TCODK_UP:
-				m_player->MoveUp();
-				break;
-			case TCODK_DOWN:
-				m_player->MoveDown();
-				break;
-			case TCODK_LEFT:
-				m_player->MoveLeft();
-				break;
-			case TCODK_RIGHT:
-				m_player->MoveRight();
-				break;
+			//case TCODK_UP:
+			//	m_player->MoveUp();
+			//	break;
+			//case TCODK_DOWN:
+			//	m_player->MoveDown();
+			//	break;
+			//case TCODK_LEFT:
+			//	m_player->MoveLeft();
+			//	break;
+			//case TCODK_RIGHT:
+			//	m_player->MoveRight();
+			//	break;
 
-				// if a character was pressed
+			// if a character was pressed
 			case TCODK_CHAR:
 				switch (key.c)
 				{
+					case PlayerInput::MOVE_UP:
+						m_player->MoveUp();
+						break;
+					case PlayerInput::MOVE_DOWN:
+						m_player->MoveDown();
+						break;
+					case PlayerInput::MOVE_LEFT:
+						m_player->MoveLeft();
+						break;
+					case PlayerInput::MOVE_RIGHT:
+						m_player->MoveRight();
+						break;
 					default:
 						break;
 				}
