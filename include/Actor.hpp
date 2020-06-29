@@ -38,6 +38,8 @@ namespace AsciiDungeon
 		inline int GetCurrentHealth() const { return m_currentHealth; }
 		inline int GetMaxHealth() const { return m_maxHealth; }
 
+		inline bool IsDead() const { return m_currentHealth <= 0; }
+
 	protected:
 		Position_t m_currentPosition;
 		char m_displayCharacter;
