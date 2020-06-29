@@ -136,24 +136,35 @@ namespace AsciiDungeon
 
 		switch (key.vk)
 		{
-			// player movement (in work)
-			case TCODK_UP:
-				m_player->MoveUp();
-				break;
-			case TCODK_DOWN:
-				m_player->MoveDown();
-				break;
-			case TCODK_LEFT:
-				m_player->MoveLeft();
-				break;
-			case TCODK_RIGHT:
-				m_player->MoveRight();
-				break;
+			//case TCODK_UP:
+			//	m_player->MoveUp();
+			//	break;
+			//case TCODK_DOWN:
+			//	m_player->MoveDown();
+			//	break;
+			//case TCODK_LEFT:
+			//	m_player->MoveLeft();
+			//	break;
+			//case TCODK_RIGHT:
+			//	m_player->MoveRight();
+			//	break;
 
-				// if a character was pressed
+			// if a character was pressed
 			case TCODK_CHAR:
 				switch (key.c)
 				{
+					case 'w':
+						m_player->MoveUp();
+						break;
+					case 's':
+						m_player->MoveDown();
+						break;
+					case 'a':
+						m_player->MoveLeft();
+						break;
+					case 'd':
+						m_player->MoveRight();
+						break;
 					default:
 						break;
 				}
