@@ -16,11 +16,15 @@ namespace AsciiDungeon
 	{
 	public:
 		Actor();
-		Actor(Position_t pos, char dispCh);
+		Actor(Position_t pos, char dispCh, int maxHealth);
 		~Actor();
 
 		void SetPosition(Position_t pos, bool checkBoundary = true);
 		inline void SetDisplayCharacter(char ch) { m_displayCharacter = ch; }
+		void UpdateHealth(int hp);
+		void SetHealth(int hp);
+		inline void UpdateMaxHealth(int hp) { m_maxHealth += hp; }
+		inline void SetMaxHealth(int hp) { m_maxHealth = hp; }
 
 		void Move(Position_t pos);
 		void Move(int x, int y);
@@ -31,10 +35,15 @@ namespace AsciiDungeon
 
 		inline Position_t GetPosition() const { return m_currentPosition; }
 		inline char GetDisplayCharacter() const { return m_displayCharacter; }
+		inline int GetCurrentHealth() const { return m_currentHealth; }
+		inline int GetMaxHealth() const { return m_maxHealth; }
 
 	protected:
 		Position_t m_currentPosition;
 		char m_displayCharacter;
+
+		int m_maxHealth;
+		int m_currentHealth;
 
 		bool CheckMoveBoundary(Position_t newPos);
 	};

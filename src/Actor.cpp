@@ -16,12 +16,39 @@ namespace AsciiDungeon
 		m_currentPosition.y = 0;
 
 		m_displayCharacter = ' ';
+
+		m_currentHealth = 1;
+		m_maxHealth = 1;
 	}
 
-	Actor::Actor(Position_t pos, char dispCh) :
-		m_currentPosition(pos), m_displayCharacter(dispCh)
+	Actor::Actor(Position_t pos, char dispCh, int maxHealth) :
+		m_currentPosition(pos), m_displayCharacter(dispCh), m_currentHealth(maxHealth), m_maxHealth(maxHealth)
 	{
 
+	}
+
+	void Actor::UpdateHealth(int hp)
+	{
+		if (m_currentHealth + hp > m_maxHealth)
+		{
+			m_currentHealth = m_maxHealth;
+		}
+		else
+		{
+			m_currentHealth += hp;
+		}
+	}
+
+	void Actor::SetHealth(int hp)
+	{
+		if (hp > m_maxHealth)
+		{
+			m_currentHealth = m_maxHealth;
+		}
+		else
+		{
+			m_currentHealth = hp;
+		}
 	}
 
 	void Actor::SetPosition(Position_t pos, bool checkBoundary)
