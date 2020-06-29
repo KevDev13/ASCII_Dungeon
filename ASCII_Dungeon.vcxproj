@@ -27,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Actor.hpp" />
+    <ClInclude Include="include\Constants.hpp" />
     <ClInclude Include="include\Engine.hpp" />
     <ClInclude Include="include\Player.hpp" />
     <ClInclude Include="include\Position.hpp" />

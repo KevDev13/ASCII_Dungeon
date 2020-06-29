@@ -7,25 +7,10 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include "Engine.hpp"
 #include "libtcod.h"
+#include "Constants.hpp"
 
 namespace AsciiDungeon
 {
-	const int VERSION_MAJOR = 0;
-	const int VERSION_MINOR = 0;
-	const int VERSION_BUILD = 1;
-
-	const int WINDOW_SIZE_HEIGHT = 50;
-	const int WINDOW_SIZE_WIDTH = 80;
-	const char* WINDOW_TITLE = "ASCII Dungeon";
-	const bool WINDOW_START_FULLSCREEN = false;
-
-	const char PLAYER_DISPLAY_CHAR = '@';
-	const TCODColor DEFAULT_BACKGROUND_COLOR = TCODColor::black;
-	const TCODColor DEFAULT_FOREGROUND_COLOR = TCODColor::yellow;
-
-	const Position_t MAP_UPPER_LEFT_CORNER = { 1, 1 };
-	const Position_t MAP_LOWER_RIGHT_CORNER = { 47, 37 };
-
 	Engine::Engine()
 	{
 		m_initialized = false;
@@ -153,16 +138,16 @@ namespace AsciiDungeon
 			case TCODK_CHAR:
 				switch (key.c)
 				{
-					case 'w':
+					case PlayerInput::MOVE_UP:
 						m_player->MoveUp();
 						break;
-					case 's':
+					case PlayerInput::MOVE_DOWN:
 						m_player->MoveDown();
 						break;
-					case 'a':
+					case PlayerInput::MOVE_LEFT:
 						m_player->MoveLeft();
 						break;
-					case 'd':
+					case PlayerInput::MOVE_RIGHT:
 						m_player->MoveRight();
 						break;
 					default:
