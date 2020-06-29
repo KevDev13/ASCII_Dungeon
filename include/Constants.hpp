@@ -20,6 +20,7 @@ namespace AsciiDungeon
 	const int WINDOW_SIZE_WIDTH = 80;
 	const char* WINDOW_TITLE = "ASCII Dungeon";
 	const bool WINDOW_START_FULLSCREEN = false;
+	const char* FONT_FILE = "png/bitmap_col.png";
 
 	const char PLAYER_DISPLAY_CHAR = '@';
 	const TCODColor DEFAULT_BACKGROUND_COLOR = TCODColor::black;

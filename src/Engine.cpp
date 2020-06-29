@@ -27,7 +27,7 @@ namespace AsciiDungeon
 
 	bool Engine::Initialize()
 	{
-		TCODConsole::setCustomFont("png/bitmap_col.png");
+		TCODConsole::setCustomFont(FONT_FILE);
 
 		// init the window using SDL2
 		TCODConsole::initRoot(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, TCOD_RENDERER_SDL2);
