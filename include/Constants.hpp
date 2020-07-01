@@ -10,6 +10,8 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "libtcod.h"
 #include "Position.hpp"
 
+//extern class TCODColor;
+
 namespace AsciiDungeon
 {
 	const int VERSION_MAJOR = 0;
