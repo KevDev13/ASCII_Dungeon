@@ -7,9 +7,10 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #pragma once
 
+#include "libtcod.h"
 #include "Position.hpp"
 
-extern class TCODColor;
+//extern class TCODColor;
 
 namespace AsciiDungeon
 {
