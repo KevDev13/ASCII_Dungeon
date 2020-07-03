@@ -8,7 +8,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #pragma once
 
 #include "libtcod.h"
-#include "Position.hpp"
+#include "Vector2D.hpp"
 
 //extern class TCODColor;
 
