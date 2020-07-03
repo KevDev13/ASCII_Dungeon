@@ -30,7 +30,7 @@
     <ClInclude Include="include\Constants.hpp" />
     <ClInclude Include="include\Engine.hpp" />
     <ClInclude Include="include\Player.hpp" />
-    <ClInclude Include="include\Position.hpp" />
+    <ClInclude Include="include\Vector2D.hpp" />
     <ClInclude Include="include\Renderer.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
