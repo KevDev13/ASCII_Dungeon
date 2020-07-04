@@ -33,7 +33,7 @@ namespace AsciiDungeon
 		TCODConsole::initRoot(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, TCOD_RENDERER_SDL2);
 
 		// temporary init for Player here
-		m_player->SetPosition(Position_t{ 10, 10 });
+		m_player->SetPosition(Vector2D_t{ 10, 10 });
 		m_player->SetDisplayCharacter(PLAYER_DISPLAY_CHAR);
 
 		// set default colors

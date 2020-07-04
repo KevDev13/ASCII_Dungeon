@@ -21,7 +21,7 @@ namespace AsciiDungeon
 		m_maxHealth = 1;
 	}
 
-	Actor::Actor(Position_t pos, char dispCh, int maxHealth) :
+	Actor::Actor(Vector2D_t pos, char dispCh, int maxHealth) :
 		m_currentPosition(pos), m_displayCharacter(dispCh), m_currentHealth(maxHealth), m_maxHealth(maxHealth)
 	{
 
@@ -51,7 +51,7 @@ namespace AsciiDungeon
 		}
 	}
 
-	void Actor::SetPosition(Position_t pos, bool checkBoundary)
+	void Actor::SetPosition(Vector2D_t pos, bool checkBoundary)
 	{
 		if (checkBoundary)
 		{
@@ -66,9 +66,9 @@ namespace AsciiDungeon
 		}
 	}
 
-	void Actor::Move(Position_t pos)
+	void Actor::Move(Vector2D_t pos)
 	{
-		Position_t newPos = m_currentPosition + pos;
+		Vector2D_t newPos = m_currentPosition + pos;
 		if (!CheckMoveBoundary(newPos))
 		{
 			return;
@@ -79,7 +79,7 @@ namespace AsciiDungeon
 
 	void Actor::Move(int x, int y)
 	{
-		Move(Position_t{ x, y });
+		Move(Vector2D_t{ x, y });
 	}
 
 	void Actor::MoveUp()
@@ -102,7 +102,7 @@ namespace AsciiDungeon
 		Move(1, 0);
 	}
 
-	bool Actor::CheckMoveBoundary(Position_t newPos)
+	bool Actor::CheckMoveBoundary(Vector2D_t newPos)
 	{
 		if (newPos.x < MAP_UPPER_LEFT_CORNER.x || newPos.x > MAP_LOWER_RIGHT_CORNER.x)
 		{
