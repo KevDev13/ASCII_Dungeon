@@ -12,7 +12,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include <list>
 
 #include "libtcod.h"
-#include "Actor.hpp"
+#include "entt/entt.hpp"
 
 namespace AsciiDungeon
 {
@@ -22,16 +22,11 @@ namespace AsciiDungeon
 		Renderer();
 		~Renderer();
 
-		bool RenderActors() const;
-		bool RenderWorld() const;
-		bool RenderAll() const;
-
-		bool AddActor(std::shared_ptr <Actor> actor);
-		bool RemoveActor(std::shared_ptr<Actor> actor);
-		bool RemoveAll();
+		void RenderActors(std::shared_ptr<entt::registry> reg) const;
+		void RenderWorld(std::shared_ptr<entt::registry> reg) const;
+		void RenderAll(std::shared_ptr<entt::registry> reg) const;
 
 	protected:
-		std::list<std::shared_ptr<Actor>> m_actors;
 	};
 
 }

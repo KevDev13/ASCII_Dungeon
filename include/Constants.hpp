@@ -26,7 +26,7 @@ namespace AsciiDungeon
 
 	const char PLAYER_DISPLAY_CHAR = '@';
 	const TCODColor DEFAULT_BACKGROUND_COLOR = TCODColor::black;
-	const TCODColor DEFAULT_FOREGROUND_COLOR = TCODColor::yellow;
+	const TCODColor DEFAULT_FOREGROUND_COLOR = TCODColor::white;
 
 	const Vector2D_t MAP_UPPER_LEFT_CORNER = { 1, 1 };
 	const Vector2D_t MAP_LOWER_RIGHT_CORNER = { 47, 37 };

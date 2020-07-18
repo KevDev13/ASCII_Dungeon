@@ -28,6 +28,7 @@
     <ClInclude Include="include\Engine.hpp" />
     <ClInclude Include="include\entt\entt.hpp" />
     <ClInclude Include="include\MovementComponent.hpp" />
+    <ClInclude Include="include\RenderComponent.hpp" />
     <ClInclude Include="include\Vector2D.hpp" />
     <ClInclude Include="include\Renderer.hpp" />
   </ItemGroup>

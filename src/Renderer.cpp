@@ -9,6 +9,8 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include <algorithm>
 
 #include "Renderer.hpp"
+#include "MovementComponent.hpp"
+#include "RenderComponent.hpp"
 
 namespace AsciiDungeon
 {
@@ -17,48 +19,27 @@ namespace AsciiDungeon
 
 	}
 
-	bool Renderer::RenderActors() const
+	void Renderer::RenderActors(std::shared_ptr<entt::registry> reg) const
 	{
-		for (auto actor = m_actors.begin(); actor != m_actors.end(); ++actor)
+		auto comps = reg->view<MovementComponent, RenderComponent>();
+
+		for (auto entity : comps)
 		{
-			TCODConsole::root->setChar(
-				(*actor)->GetPosition().x,
-				(*actor)->GetPosition().y,
-				(*actor)->GetDisplayCharacter());
+			auto& movement = comps.get<MovementComponent>(entity);
+			auto& render = comps.get<RenderComponent>(entity);
+			TCODConsole::root->putCharEx(movement.position.x, movement.position.y, render.displayCharacter, render.foregroundColor, render.backgroundColor);
 		}
-
-		return true;
 	}
 
-	bool Renderer::RenderWorld() const
+	void Renderer::RenderWorld(std::shared_ptr<entt::registry> reg) const
 	{
-		return true;
+		
 	}
 
-	bool Renderer::RenderAll() const
+	void Renderer::RenderAll(std::shared_ptr<entt::registry> reg) const
 	{
-		return RenderWorld() && RenderActors();
-	}
-
-	bool Renderer::AddActor(std::shared_ptr<Actor> actor)
-	{
-		m_actors.push_back(actor);
-
-		return true;
-	}
-
-	bool Renderer::RemoveActor(std::shared_ptr<Actor> actor)
-	{
-		m_actors.remove(actor);
-
-		return std::find(m_actors.begin(), m_actors.end(), actor) == m_actors.end();
-	}
-
-	bool Renderer::RemoveAll()
-	{
-		m_actors.clear();
-
-		return m_actors.size() == 0;
+		RenderWorld(reg);
+		RenderActors(reg);
 	}
 
 	Renderer::~Renderer()

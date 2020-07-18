@@ -9,6 +9,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "libtcod.h"
 #include "Constants.hpp"
 #include "MovementComponent.hpp"
+#include "RenderComponent.hpp"
 
 namespace AsciiDungeon
 {
@@ -18,7 +19,8 @@ namespace AsciiDungeon
 		m_playerWantsToQuit = false;
 
 		{
-			using namespace std;;
+			using namespace std;
+			m_registry = make_shared<entt::registry>();
 			m_renderer = make_unique<Renderer>();
 		}
 	}
@@ -39,9 +41,10 @@ namespace AsciiDungeon
 		TCODConsole::root->setDefaultBackground(DEFAULT_BACKGROUND_COLOR);
 		TCODConsole::root->setDefaultForeground(DEFAULT_FOREGROUND_COLOR);
 
-		m_playerEntity = m_registry.create();
+		m_playerEntity = m_registry->create();
 		Vector2D_t playerStart = { 10, 10 };
-		m_registry.emplace<MovementComponent>(m_playerEntity, playerStart);
+		m_registry->emplace<MovementComponent>(m_playerEntity, playerStart);
+		m_registry->emplace<RenderComponent>(m_playerEntity, '@', DEFAULT_BACKGROUND_COLOR, TCODColor::green);
 
 		m_initialized = true;
 		return m_initialized;
@@ -105,7 +108,7 @@ namespace AsciiDungeon
 		}
 
 		// render world and all actors
-		m_renderer->RenderAll();
+		m_renderer->RenderAll(m_registry);
 
 		TCODConsole::root->flush();
 
