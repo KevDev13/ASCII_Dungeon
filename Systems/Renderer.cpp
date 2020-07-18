@@ -24,8 +24,7 @@ namespace asciidungeon
 
 		for (auto entity : comps)
 		{
-			auto& movement = comps.get<MovementComponent>(entity);
-			auto& render = comps.get<RenderComponent>(entity);
+			auto [movement, render] = comps.get<MovementComponent, RenderComponent>(entity);
 			TCODConsole::root->putCharEx(movement.position.x, movement.position.y, render.displayCharacter, render.foregroundColor, render.backgroundColor);
 		}
 	}
