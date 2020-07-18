@@ -11,7 +11,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include <memory>
 #include <list>
 
-#include "libtcod.h"
+#include "libtcod/libtcod.hpp"
 #include "entt/entt.hpp"
 
 namespace AsciiDungeon

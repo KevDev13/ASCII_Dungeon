@@ -6,7 +6,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 */
 
 #include "Engine.hpp"
-#include "libtcod.h"
+#include "libtcod/libtcod.hpp"
 #include "Constants.hpp"
 #include "MovementComponent.hpp"
 #include "RenderComponent.hpp"
