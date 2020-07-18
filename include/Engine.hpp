@@ -9,6 +9,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include <memory>
 
+#include "entt/entt.hpp"
 #include "Actor.hpp"
 #include "Renderer.hpp"
 
@@ -28,8 +29,11 @@ namespace AsciiDungeon
 	protected:
 		bool m_initialized;
 		bool m_playerWantsToQuit;
-		std::shared_ptr<Actor> m_player;
+
+		entt::registry m_registry;
 		std::unique_ptr<Renderer> m_renderer;
+
+		entt::entity m_playerEntity;
 
 		void HandleInput();
 		bool Render();

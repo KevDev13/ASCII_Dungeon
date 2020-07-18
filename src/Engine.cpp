@@ -8,6 +8,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "Engine.hpp"
 #include "libtcod.h"
 #include "Constants.hpp"
+#include "MovementComponent.hpp"
 
 namespace AsciiDungeon
 {
@@ -16,8 +17,10 @@ namespace AsciiDungeon
 		m_initialized = false;
 		m_playerWantsToQuit = false;
 
-		m_player = std::make_shared<Actor>();
-		m_renderer = std::make_unique<Renderer>();
+		{
+			using namespace std;;
+			m_renderer = make_unique<Renderer>();
+		}
 	}
 
 	Engine::~Engine()
@@ -32,16 +35,13 @@ namespace AsciiDungeon
 		// init the window using SDL2
 		TCODConsole::initRoot(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, TCOD_RENDERER_SDL2);
 
-		// temporary init for Player here
-		m_player->SetPosition(Vector2D_t{ 10, 10 });
-		m_player->SetDisplayCharacter(PLAYER_DISPLAY_CHAR);
-
 		// set default colors
 		TCODConsole::root->setDefaultBackground(DEFAULT_BACKGROUND_COLOR);
 		TCODConsole::root->setDefaultForeground(DEFAULT_FOREGROUND_COLOR);
 
-		// add player to Renderer
-		m_renderer->AddActor(m_player);
+		m_playerEntity = m_registry.create();
+		Vector2D_t playerStart = { 10, 10 };
+		m_registry.emplace<MovementComponent>(m_playerEntity, playerStart);
 
 		m_initialized = true;
 		return m_initialized;
@@ -135,25 +135,25 @@ namespace AsciiDungeon
 			//	break;
 
 			// if a character was pressed
-			case TCODK_CHAR:
-				switch (key.c)
-				{
-					case PlayerInput::MOVE_UP:
-						m_player->MoveUp();
-						break;
-					case PlayerInput::MOVE_DOWN:
-						m_player->MoveDown();
-						break;
-					case PlayerInput::MOVE_LEFT:
-						m_player->MoveLeft();
-						break;
-					case PlayerInput::MOVE_RIGHT:
-						m_player->MoveRight();
-						break;
-					default:
-						break;
-				}
-				break;
+			//case TCODK_CHAR:
+			//	switch (key.c)
+			//	{
+			//		case PlayerInput::MOVE_UP:
+			//			m_player->MoveUp();
+			//			break;
+			//		case PlayerInput::MOVE_DOWN:
+			//			m_player->MoveDown();
+			//			break;
+			//		case PlayerInput::MOVE_LEFT:
+			//			m_player->MoveLeft();
+			//			break;
+			//		case PlayerInput::MOVE_RIGHT:
+			//			m_player->MoveRight();
+			//			break;
+			//		default:
+			//			break;
+			//	}
+			//	break;
 
 			// player wants to quit
 			case TCODK_ESCAPE:
