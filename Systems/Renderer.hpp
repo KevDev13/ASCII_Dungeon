@@ -9,9 +9,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #pragma once
 
 #include <memory>
-#include <list>
 
-#include "libtcod/libtcod.hpp"
 #include "entt/entt.hpp"
 
 namespace asciidungeon
