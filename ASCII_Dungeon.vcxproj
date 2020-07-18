@@ -19,13 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Actor.cpp" />
     <ClCompile Include="src\asciidungeon.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Actor.hpp" />
     <ClInclude Include="include\Constants.hpp" />
     <ClInclude Include="include\Engine.hpp" />
     <ClInclude Include="include\entt\entt.hpp" />
