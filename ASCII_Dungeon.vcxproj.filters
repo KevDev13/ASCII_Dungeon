@@ -47,13 +47,13 @@
     <ClInclude Include="Systems\Renderer.hpp">
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
-    <ClInclude Include="Components\MovementComponent.hpp">
-      <Filter>Header Files\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Components\RenderComponent.hpp">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="Components\Vector2D.hpp">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\PositionComponent.hpp">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
   </ItemGroup>

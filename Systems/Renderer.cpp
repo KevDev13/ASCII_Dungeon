@@ -8,7 +8,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include "libtcod/libtcod.hpp"
 #include "Renderer.hpp"
-#include "MovementComponent.hpp"
+#include "PositionComponent.hpp"
 #include "RenderComponent.hpp"
 
 namespace asciidungeon
@@ -20,11 +20,11 @@ namespace asciidungeon
 
 	void Renderer::RenderActors(std::shared_ptr<entt::registry> reg) const
 	{
-		auto comps = reg->view<MovementComponent, RenderComponent>();
+		auto comps = reg->view<PositionComponent, RenderComponent>();
 
 		for (auto entity : comps)
 		{
-			auto [movement, render] = comps.get<MovementComponent, RenderComponent>(entity);
+			auto [movement, render] = comps.get<PositionComponent, RenderComponent>(entity);
 			TCODConsole::root->putCharEx(movement.position.x, movement.position.y, render.displayCharacter, render.foregroundColor, render.backgroundColor);
 		}
 	}

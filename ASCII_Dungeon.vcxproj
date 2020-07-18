@@ -24,7 +24,7 @@
     <ClCompile Include="Systems\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Components\MovementComponent.hpp" />
+    <ClInclude Include="Components\PositionComponent.hpp" />
     <ClInclude Include="Components\RenderComponent.hpp" />
     <ClInclude Include="Components\Vector2D.hpp" />
     <ClInclude Include="Engine\Constants.hpp" />

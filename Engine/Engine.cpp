@@ -8,7 +8,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "Engine.hpp"
 #include "libtcod/libtcod.hpp"
 #include "Constants.hpp"
-#include "MovementComponent.hpp"
+#include "PositionComponent.hpp"
 #include "RenderComponent.hpp"
 
 namespace asciidungeon
@@ -43,7 +43,7 @@ namespace asciidungeon
 
 		m_playerEntity = m_registry->create();
 		Vector2D_t playerStart = { 10, 10 };
-		m_registry->emplace<MovementComponent>(m_playerEntity, playerStart);
+		m_registry->emplace<PositionComponent>(m_playerEntity, playerStart);
 		m_registry->emplace<RenderComponent>(m_playerEntity, '@', DEFAULT_BACKGROUND_COLOR, TCODColor::green);
 
 		m_initialized = true;
