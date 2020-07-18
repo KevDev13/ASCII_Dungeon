@@ -12,7 +12,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "MovementComponent.hpp"
 #include "RenderComponent.hpp"
 
-namespace AsciiDungeon
+namespace asciidungeon
 {
 	Renderer::Renderer()
 	{

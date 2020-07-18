@@ -12,7 +12,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 //extern class TCODColor;
 
-namespace AsciiDungeon
+namespace asciidungeon
 {
 	const int VERSION_MAJOR = 0;
 	const int VERSION_MINOR = 0;
@@ -31,7 +31,7 @@ namespace AsciiDungeon
 	const Vector2D_t MAP_UPPER_LEFT_CORNER = { 1, 1 };
 	const Vector2D_t MAP_LOWER_RIGHT_CORNER = { 47, 37 };
 
-	namespace PlayerInput
+	namespace playerinput
 	{
 		const char MOVE_UP = 'w';
 		const char MOVE_DOWN = 's';

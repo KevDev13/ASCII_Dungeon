@@ -14,7 +14,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "libtcod/libtcod.hpp"
 #include "entt/entt.hpp"
 
-namespace AsciiDungeon
+namespace asciidungeon
 {
 	class Renderer
 	{

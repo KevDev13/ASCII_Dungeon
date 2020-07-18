@@ -12,7 +12,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "entt/entt.hpp"
 #include "Renderer.hpp"
 
-namespace AsciiDungeon
+namespace asciidungeon
 {
 	class Engine
 	{
