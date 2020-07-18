@@ -27,6 +27,7 @@
     <ClInclude Include="Components\PositionComponent.hpp" />
     <ClInclude Include="Components\RenderComponent.hpp" />
     <ClInclude Include="Components\Vector2D.hpp" />
+    <ClInclude Include="Components\VelocityComponent.hpp" />
     <ClInclude Include="Engine\Constants.hpp" />
     <ClInclude Include="Engine\Engine.hpp" />
     <ClInclude Include="Systems\Renderer.hpp" />

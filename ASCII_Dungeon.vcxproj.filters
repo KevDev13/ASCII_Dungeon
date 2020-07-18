@@ -56,5 +56,8 @@
     <ClInclude Include="Components\PositionComponent.hpp">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
+    <ClInclude Include="Components\VelocityComponent.hpp">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
