@@ -24,6 +24,7 @@ namespace asciidungeon
 			m_registry = make_shared<entt::registry>();
 			m_renderer = make_unique<Renderer>();
 			m_inputHandler = make_unique<InputHandler>();
+			m_movementHandler = make_unique<MovementHandler>();
 		}
 	}
 
@@ -65,7 +66,8 @@ namespace asciidungeon
 		while (!TCODConsole::isWindowClosed() && !m_playerWantsToQuit)
 		{
 			m_inputHandler->HandlePlayerInput(m_registry, m_playerEntity);
-			// eventually, NPC AI will be run here
+			// TODO: handle AI here
+			m_movementHandler->ProcessMovement(m_registry);
 			if (!Render())
 			{
 				return false;

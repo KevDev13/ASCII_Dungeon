@@ -39,6 +39,9 @@
     <ClCompile Include="Systems\InputHandler.cpp">
       <Filter>Source Files\Systems</Filter>
     </ClCompile>
+    <ClCompile Include="Systems\MovementHandler.cpp">
+      <Filter>Source Files\Systems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Engine.hpp">
@@ -63,6 +66,9 @@
       <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="Systems\InputHandler.hpp">
+      <Filter>Header Files\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems\MovementHandler.hpp">
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
   </ItemGroup>

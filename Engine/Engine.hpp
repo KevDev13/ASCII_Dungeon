@@ -12,6 +12,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "entt/entt.hpp"
 #include "Renderer.hpp"
 #include "InputHandler.hpp"
+#include "MovementHandler.hpp"
 
 namespace asciidungeon
 {
@@ -34,6 +35,7 @@ namespace asciidungeon
 
 		std::unique_ptr<Renderer> m_renderer;
 		std::unique_ptr<InputHandler> m_inputHandler;
+		std::unique_ptr<MovementHandler> m_movementHandler;
 
 		entt::entity m_playerEntity;
 
