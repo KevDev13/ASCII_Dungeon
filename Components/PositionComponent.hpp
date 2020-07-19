@@ -16,7 +16,7 @@ namespace asciidungeon
 		Vector2D_t position;
 
 		PositionComponent() = default;
-		PositionComponent(Vector2D_t pos) : position(pos) {};
-		PositionComponent(int pos_x, int pos_y) : position({ pos_x, pos_y }) {};
+		PositionComponent(Vector2D_t pos) : position(pos) {}
+		PositionComponent(int pos_x, int pos_y) : position({ pos_x, pos_y }) {}
 	};
 }

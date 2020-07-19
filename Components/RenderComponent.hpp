@@ -21,7 +21,7 @@ namespace asciidungeon
 		char displayCharacter;
 
 		RenderComponent() = default;
-		RenderComponent(char ch) : backgroundColor(DEFAULT_BACKGROUND_COLOR), foregroundColor(DEFAULT_FOREGROUND_COLOR), displayCharacter(ch) {};
-		RenderComponent(char ch, TCODColor bc, TCODColor fc) : backgroundColor(bc), foregroundColor(fc), displayCharacter(ch) {};
+		RenderComponent(char ch) : backgroundColor(DEFAULT_BACKGROUND_COLOR), foregroundColor(DEFAULT_FOREGROUND_COLOR), displayCharacter(ch) {}
+		RenderComponent(char ch, TCODColor bc, TCODColor fc) : backgroundColor(bc), foregroundColor(fc), displayCharacter(ch) {}
 	};
 }

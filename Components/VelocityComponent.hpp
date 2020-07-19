@@ -16,7 +16,7 @@ namespace asciidungeon
 		Vector2D_t velocity;
 
 		VelocityComponent() = default;
-		VelocityComponent(Vector2D_t vel) : velocity(vel) {};
-		VelocityComponent(int vel_x, int vel_y) : velocity({ vel_x, vel_y }) {};
+		VelocityComponent(Vector2D_t vel) : velocity(vel) {}
+		VelocityComponent(int vel_x, int vel_y) : velocity({ vel_x, vel_y }) {}
 	};
 }
