@@ -24,8 +24,8 @@ namespace asciidungeon
 
 		for (auto entity : comps)
 		{
-			auto [movement, vel] = comps.get<PositionComponent, VelocityComponent>(entity);
-			movement.position = movement.position + vel.velocity;
+			auto [pos, vel] = comps.get<PositionComponent, VelocityComponent>(entity);
+			pos.position = pos.position + vel.velocity;
 		}
 	}
 }
