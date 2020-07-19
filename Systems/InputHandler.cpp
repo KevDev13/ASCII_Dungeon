@@ -61,7 +61,7 @@ namespace asciidungeon
 				else
 				{
 					// set velocity to 0 since player doesn't want to move
-					playerVelocity = { 0, 0 };
+					playerVelocity.velocity = { 0, 0 };
 				}
 				
 				if (input = inventory)
