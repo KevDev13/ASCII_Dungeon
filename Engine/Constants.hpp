@@ -30,12 +30,4 @@ namespace asciidungeon
 
 	const Vector2D_t MAP_UPPER_LEFT_CORNER = { 1, 1 };
 	const Vector2D_t MAP_LOWER_RIGHT_CORNER = { 47, 37 };
-
-	namespace playerinput
-	{
-		const char MOVE_UP = 'w';
-		const char MOVE_DOWN = 's';
-		const char MOVE_LEFT = 'a';
-		const char MOVE_RIGHT = 'd';
-	}
 }
