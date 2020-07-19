@@ -78,6 +78,8 @@ namespace asciidungeon
 				break;
 
 			default:
+				// set velocity to 0, 0 here to prevent additional movement
+				playerVelocity = { 0, 0 };
 				break;
 		}
 	}
