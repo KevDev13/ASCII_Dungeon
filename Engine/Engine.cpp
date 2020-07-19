@@ -22,6 +22,7 @@ namespace asciidungeon
 			using namespace std;
 			m_registry = make_shared<entt::registry>();
 			m_renderer = make_unique<Renderer>();
+			m_inputHandler = make_unique<InputHandler>();
 		}
 	}
 
@@ -61,7 +62,7 @@ namespace asciidungeon
 		// while window is still open
 		while (!TCODConsole::isWindowClosed() && !m_playerWantsToQuit)
 		{
-			HandleInput();
+			m_inputHandler->HandlePlayerInput(m_registry, m_playerEntity);
 			// eventually, NPC AI will be run here
 			if (!Render())
 			{
@@ -113,60 +114,5 @@ namespace asciidungeon
 		TCODConsole::root->flush();
 
 		return true;
-	}
-
-	void Engine::HandleInput()
-	{
-		TCOD_key_t key;
-		//TCOD_mouse_t mouse;
-		//TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, &mouse);
-		TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
-
-		switch (key.vk)
-		{
-			//case TCODK_UP:
-			//	m_player->MoveUp();
-			//	break;
-			//case TCODK_DOWN:
-			//	m_player->MoveDown();
-			//	break;
-			//case TCODK_LEFT:
-			//	m_player->MoveLeft();
-			//	break;
-			//case TCODK_RIGHT:
-			//	m_player->MoveRight();
-			//	break;
-
-			// if a character was pressed
-			//case TCODK_CHAR:
-			//	switch (key.c)
-			//	{
-			//		case PlayerInput::MOVE_UP:
-			//			m_player->MoveUp();
-			//			break;
-			//		case PlayerInput::MOVE_DOWN:
-			//			m_player->MoveDown();
-			//			break;
-			//		case PlayerInput::MOVE_LEFT:
-			//			m_player->MoveLeft();
-			//			break;
-			//		case PlayerInput::MOVE_RIGHT:
-			//			m_player->MoveRight();
-			//			break;
-			//		default:
-			//			break;
-			//	}
-			//	break;
-
-			// player wants to quit
-			case TCODK_ESCAPE:
-				m_playerWantsToQuit = true;
-				break;
-
-			default:
-				break;
-		}
-
-		// handle mouse input here
 	}
 }

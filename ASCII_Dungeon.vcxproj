@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="AsciiDungeon.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
+    <ClCompile Include="Systems\InputHandler.cpp" />
     <ClCompile Include="Systems\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -30,6 +31,7 @@
     <ClInclude Include="Components\VelocityComponent.hpp" />
     <ClInclude Include="Engine\Constants.hpp" />
     <ClInclude Include="Engine\Engine.hpp" />
+    <ClInclude Include="Systems\InputHandler.hpp" />
     <ClInclude Include="Systems\Renderer.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
