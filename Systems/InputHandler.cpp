@@ -33,6 +33,9 @@ namespace asciidungeon
 		//TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, &mouse);
 		TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
 
+		// set to 0, 0 to clear out any previous velocity. This will get overwritten if player has pressed a button.
+		playerVelocity = { 0, 0 };
+
 		switch (key.vk)
 		{
 			// if a character was pressed
@@ -60,8 +63,7 @@ namespace asciidungeon
 				}
 				else
 				{
-					// set velocity to 0 since player doesn't want to move
-					playerVelocity = { 0, 0 };
+
 				}
 				
 				if (input = inventory)
@@ -78,8 +80,6 @@ namespace asciidungeon
 				break;
 
 			default:
-				// set velocity to 0, 0 here to prevent additional movement
-				playerVelocity = { 0, 0 };
 				break;
 		}
 	}
