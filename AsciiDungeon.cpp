@@ -9,10 +9,11 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include <memory>
 
-#include "libtcod.h"
+#include "entt/entt.hpp"
+#include "libtcod/libtcod.hpp"
 #include "Engine.hpp"
 
-using namespace AsciiDungeon;
+using namespace asciidungeon;
 
 int main()
 {

@@ -19,19 +19,22 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Actor.cpp" />
-    <ClCompile Include="src\asciidungeon.cpp" />
-    <ClCompile Include="src\Engine.cpp" />
-    <ClCompile Include="src\Player.cpp" />
-    <ClCompile Include="src\Renderer.cpp" />
+    <ClCompile Include="AsciiDungeon.cpp" />
+    <ClCompile Include="Engine\Engine.cpp" />
+    <ClCompile Include="Systems\InputHandler.cpp" />
+    <ClCompile Include="Systems\MovementHandler.cpp" />
+    <ClCompile Include="Systems\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Actor.hpp" />
-    <ClInclude Include="include\Constants.hpp" />
-    <ClInclude Include="include\Engine.hpp" />
-    <ClInclude Include="include\Player.hpp" />
-    <ClInclude Include="include\Vector2D.hpp" />
-    <ClInclude Include="include\Renderer.hpp" />
+    <ClInclude Include="Components\PositionComponent.hpp" />
+    <ClInclude Include="Components\RenderComponent.hpp" />
+    <ClInclude Include="Components\Vector2D.hpp" />
+    <ClInclude Include="Components\VelocityComponent.hpp" />
+    <ClInclude Include="Engine\Constants.hpp" />
+    <ClInclude Include="Engine\Engine.hpp" />
+    <ClInclude Include="Systems\InputHandler.hpp" />
+    <ClInclude Include="Systems\MovementHandler.hpp" />
+    <ClInclude Include="Systems\Renderer.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -87,22 +90,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Systems;$(ProjectDir)Engine;$(ProjectDir)ThirdParty;$(ProjectDir)Components;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Systems;$(ProjectDir)Engine;$(ProjectDir)ThirdParty;$(ProjectDir)Components;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(ProjectDir)\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Systems;$(ProjectDir)Engine;$(ProjectDir)ThirdParty;$(ProjectDir)Components;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(ProjectDir)\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(ProjectDir)Systems;$(ProjectDir)Engine;$(ProjectDir)ThirdParty;$(ProjectDir)Components;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -111,6 +114,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -126,6 +130,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,6 +146,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -156,6 +162,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

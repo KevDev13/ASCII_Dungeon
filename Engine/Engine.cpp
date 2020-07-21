@@ -6,18 +6,26 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 */
 
 #include "Engine.hpp"
-#include "libtcod.h"
+#include "libtcod/libtcod.hpp"
 #include "Constants.hpp"
+#include "PositionComponent.hpp"
+#include "RenderComponent.hpp"
+#include "VelocityComponent.hpp"
 
-namespace AsciiDungeon
+namespace asciidungeon
 {
 	Engine::Engine()
 	{
 		m_initialized = false;
 		m_playerWantsToQuit = false;
 
-		m_player = std::make_shared<Actor>();
-		m_renderer = std::make_unique<Renderer>();
+		{
+			using namespace std;
+			m_registry = make_shared<entt::registry>();
+			m_renderer = make_unique<Renderer>();
+			m_inputHandler = make_unique<InputHandler>();
+			m_movementHandler = make_unique<MovementHandler>();
+		}
 	}
 
 	Engine::~Engine()
@@ -32,16 +40,15 @@ namespace AsciiDungeon
 		// init the window using SDL2
 		TCODConsole::initRoot(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, TCOD_RENDERER_SDL2);
 
-		// temporary init for Player here
-		m_player->SetPosition(Vector2D_t{ 10, 10 });
-		m_player->SetDisplayCharacter(PLAYER_DISPLAY_CHAR);
-
 		// set default colors
 		TCODConsole::root->setDefaultBackground(DEFAULT_BACKGROUND_COLOR);
 		TCODConsole::root->setDefaultForeground(DEFAULT_FOREGROUND_COLOR);
 
-		// add player to Renderer
-		m_renderer->AddActor(m_player);
+		m_playerEntity = m_registry->create();
+		Vector2D_t playerStart = { 10, 10 };
+		m_registry->emplace<PositionComponent>(m_playerEntity, playerStart);
+		m_registry->emplace<VelocityComponent>(m_playerEntity);
+		m_registry->emplace<RenderComponent>(m_playerEntity, '@', DEFAULT_BACKGROUND_COLOR, TCODColor::green);
 
 		m_initialized = true;
 		return m_initialized;
@@ -58,8 +65,9 @@ namespace AsciiDungeon
 		// while window is still open
 		while (!TCODConsole::isWindowClosed() && !m_playerWantsToQuit)
 		{
-			HandleInput();
-			// eventually, NPC AI will be run here
+			m_inputHandler->HandlePlayerInput(m_registry, m_playerEntity);
+			// TODO: handle AI here
+			m_movementHandler->ProcessMovement(m_registry);
 			if (!Render())
 			{
 				return false;
@@ -105,65 +113,10 @@ namespace AsciiDungeon
 		}
 
 		// render world and all actors
-		m_renderer->RenderAll();
+		m_renderer->RenderAll(m_registry);
 
 		TCODConsole::root->flush();
 
 		return true;
-	}
-
-	void Engine::HandleInput()
-	{
-		TCOD_key_t key;
-		//TCOD_mouse_t mouse;
-		//TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, &mouse);
-		TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
-
-		switch (key.vk)
-		{
-			//case TCODK_UP:
-			//	m_player->MoveUp();
-			//	break;
-			//case TCODK_DOWN:
-			//	m_player->MoveDown();
-			//	break;
-			//case TCODK_LEFT:
-			//	m_player->MoveLeft();
-			//	break;
-			//case TCODK_RIGHT:
-			//	m_player->MoveRight();
-			//	break;
-
-			// if a character was pressed
-			case TCODK_CHAR:
-				switch (key.c)
-				{
-					case PlayerInput::MOVE_UP:
-						m_player->MoveUp();
-						break;
-					case PlayerInput::MOVE_DOWN:
-						m_player->MoveDown();
-						break;
-					case PlayerInput::MOVE_LEFT:
-						m_player->MoveLeft();
-						break;
-					case PlayerInput::MOVE_RIGHT:
-						m_player->MoveRight();
-						break;
-					default:
-						break;
-				}
-				break;
-
-			// player wants to quit
-			case TCODK_ESCAPE:
-				m_playerWantsToQuit = true;
-				break;
-
-			default:
-				break;
-		}
-
-		// handle mouse input here
 	}
 }

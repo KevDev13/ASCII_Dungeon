@@ -9,10 +9,12 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include <memory>
 
-#include "Actor.hpp"
+#include "entt/entt.hpp"
 #include "Renderer.hpp"
+#include "InputHandler.hpp"
+#include "MovementHandler.hpp"
 
-namespace AsciiDungeon
+namespace asciidungeon
 {
 	class Engine
 	{
@@ -28,10 +30,15 @@ namespace AsciiDungeon
 	protected:
 		bool m_initialized;
 		bool m_playerWantsToQuit;
-		std::shared_ptr<Actor> m_player;
-		std::unique_ptr<Renderer> m_renderer;
 
-		void HandleInput();
+		std::shared_ptr<entt::registry> m_registry;
+
+		std::unique_ptr<Renderer> m_renderer;
+		std::unique_ptr<InputHandler> m_inputHandler;
+		std::unique_ptr<MovementHandler> m_movementHandler;
+
+		entt::entity m_playerEntity;
+
 		bool Render();
 	};
 
