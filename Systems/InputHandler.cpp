@@ -49,15 +49,15 @@ namespace asciidungeon
 				{
 					playerVelocity = { 0, -1 };
 				}
-				else if (input = moveDown)
+				else if (input == moveDown)
 				{
 					playerVelocity = { 0, 1 };
 				}
-				else if (input = moveLeft)
+				else if (input == moveLeft)
 				{
 					playerVelocity = { -1, 0 };
 				}
-				else if (input = moveRight)
+				else if (input == moveRight)
 				{
 					playerVelocity = { 1, 0 };
 				}
@@ -66,7 +66,7 @@ namespace asciidungeon
 
 				}
 				
-				if (input = inventory)
+				if (input == inventory)
 				{
 
 				}
