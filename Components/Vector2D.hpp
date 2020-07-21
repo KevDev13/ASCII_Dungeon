@@ -44,4 +44,6 @@ namespace asciidungeon
 	{
 		return !(left == right);
 	}
+
+	// TODO: add += operator
 }

@@ -22,6 +22,5 @@ namespace asciidungeon
 		void ProcessMovement(std::shared_ptr<entt::registry> reg) const;
 
 	protected:
-
 	};
 }

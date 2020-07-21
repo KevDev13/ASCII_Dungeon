@@ -29,9 +29,10 @@ namespace asciidungeon
 
 		// key for input
 		TCOD_key_t key;
+		TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
+
 		//TCOD_mouse_t mouse;
 		//TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, &mouse);
-		TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
 
 		// set to 0, 0 to clear out any previous velocity. This will get overwritten if player has pressed a button.
 		playerVelocity = { 0, 0 };
@@ -71,12 +72,11 @@ namespace asciidungeon
 
 				}
 			}
-
 			break;
 
 			// player wants to quit
 			case TCODK_ESCAPE:
-				//m_playerWantsToQuit = true;
+				// TODO: setup a way to return that player wants to quit here so Engine (and eventually window wrapper class) knows to exit
 				break;
 
 			default:

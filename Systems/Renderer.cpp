@@ -24,6 +24,8 @@ namespace asciidungeon
 
 		for (auto entity : comps)
 		{
+			// go through and display any entity with position + render components
+			// TODO: map world coordinates to screen coordinates (do this here or somewhere else?
 			const auto [movement, render] = comps.get<PositionComponent, RenderComponent>(entity);
 			TCODConsole::root->putCharEx(movement.position.x, movement.position.y, render.displayCharacter, render.foregroundColor, render.backgroundColor);
 		}
@@ -34,6 +36,7 @@ namespace asciidungeon
 		
 	}
 
+	// TODO: make this the only render function?
 	void Renderer::RenderAll(std::shared_ptr<entt::registry> reg) const
 	{
 		RenderWorld(reg);

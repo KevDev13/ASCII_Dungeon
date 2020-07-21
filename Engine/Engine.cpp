@@ -35,6 +35,7 @@ namespace asciidungeon
 
 	bool Engine::Initialize()
 	{
+		// setup font file
 		TCODConsole::setCustomFont(FONT_FILE);
 
 		// init the window using SDL2
@@ -45,7 +46,7 @@ namespace asciidungeon
 		TCODConsole::root->setDefaultForeground(DEFAULT_FOREGROUND_COLOR);
 
 		m_playerEntity = m_registry->create();
-		Vector2D_t playerStart = { 10, 10 };
+		Vector2D_t playerStart = { 10, 10 };	// TODO: temporary, will remove later
 		m_registry->emplace<PositionComponent>(m_playerEntity, playerStart);
 		m_registry->emplace<VelocityComponent>(m_playerEntity);
 		m_registry->emplace<RenderComponent>(m_playerEntity, '@', DEFAULT_BACKGROUND_COLOR, TCODColor::green);
@@ -68,6 +69,9 @@ namespace asciidungeon
 			m_inputHandler->HandlePlayerInput(m_registry, m_playerEntity);
 			// TODO: handle AI here
 			m_movementHandler->ProcessMovement(m_registry);
+			// TODO: change this to just calling the renderer, and call a window/GUI wrapper
+			// essentially the window and GUI wrappers should do everything that Engine::Render() does now
+			// but without calling the renderer, obviously
 			if (!Render())
 			{
 				return false;
@@ -86,7 +90,7 @@ namespace asciidungeon
 
 		TCODConsole::root->clear();
 
-		// show GUI. This will eventually be it's own class
+		// show GUI. This will eventually be it's own warpper class
 		{
 			TCODConsole::root->putChar(0, 0, TCOD_CHAR_DNW);
 			TCODConsole::root->putChar(0, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_DSW);
