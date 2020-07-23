@@ -41,6 +41,9 @@ namespace asciidungeon
 		// init the window using SDL2
 		TCODConsole::initRoot(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, TCOD_RENDERER_SDL2);
 
+		// set maximum FPS
+		TCODSystem::setFps(MAXIMUM_FRAMES_PER_SECOND);
+
 		// set default colors
 		TCODConsole::root->setDefaultBackground(DEFAULT_BACKGROUND_COLOR);
 		TCODConsole::root->setDefaultForeground(DEFAULT_FOREGROUND_COLOR);
@@ -92,6 +95,7 @@ namespace asciidungeon
 
 		// show GUI. This will eventually be it's own warpper class
 		{
+			// print border around world
 			TCODConsole::root->putChar(0, 0, TCOD_CHAR_DNW);
 			TCODConsole::root->putChar(0, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_DSW);
 			TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, 0, TCOD_CHAR_DNE);
@@ -109,10 +113,15 @@ namespace asciidungeon
 				TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, row, TCOD_CHAR_DVLINE);
 			}
 
+			// print FPS
+			TCODConsole::root->printf(69, 48, std::to_string(TCODSystem::getFps()).c_str());
+
+			// build string for current s/w version
 			std::string versionString = "v " + std::to_string(VERSION_MAJOR)
 				+ "." + std::to_string(VERSION_MINOR)
 				+ "." + std::to_string(VERSION_BUILD);
 
+			// print current s/w version
 			TCODConsole::root->printf(69, 49, versionString.c_str());
 		}
 
