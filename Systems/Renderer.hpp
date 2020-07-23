@@ -11,9 +11,12 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include <memory>
 
 #include "entt/entt.hpp"
+#include "Vector2D.hpp"
 
 namespace asciidungeon
 {
+	extern const Vector2D_t MAP_UPPER_LEFT_CORNER;
+	extern const Vector2D_t MAP_LOWER_RIGHT_CORNER;
 	class Renderer
 	{
 	public:
@@ -25,6 +28,8 @@ namespace asciidungeon
 		void RenderAll(std::shared_ptr<entt::registry> reg) const;
 
 	protected:
+		// takes in worldPosition and translates that into the screen coordinates. Returns true if the screen coordinate is valid and should be rendered, false otherwise.
+		bool WorldPositionToScreenPosition(Vector2D_t worldPosition, Vector2D_t& screenPosition) const;
 	};
 
 }
