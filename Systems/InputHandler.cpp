@@ -34,9 +34,6 @@ namespace asciidungeon
 		//TCOD_mouse_t mouse;
 		//TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, &mouse);
 
-		// set to 0, 0 to clear out any previous velocity. This will get overwritten if player has pressed a button.
-		playerVelocity = { 0, 0 };
-
 		switch (key.vk)
 		{
 			// if a character was pressed
