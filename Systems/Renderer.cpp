@@ -48,7 +48,7 @@ namespace asciidungeon
 
 	bool Renderer::WorldPositionToScreenPosition(Vector2D_t worldPosition, Vector2D_t& screenPosition) const
 	{
-		// TODO: thos function is going to need a LOT of work in the long run. 
+		// TODO: this function is going to need a LOT of work in the long run. 
 		// For now, just getting it here somewhat as a placeholder
 
 		// translate to possible screen position
