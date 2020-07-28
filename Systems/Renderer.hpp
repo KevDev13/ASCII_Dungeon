@@ -23,13 +23,14 @@ namespace asciidungeon
 		Renderer();
 		~Renderer();
 
-		void RenderActors(std::shared_ptr<entt::registry> reg) const;
-		void RenderWorld(std::shared_ptr<entt::registry> reg) const;
 		void RenderAll(std::shared_ptr<entt::registry> reg) const;
 
 	protected:
 		// takes in worldPosition and translates that into the screen coordinates. Returns true if the screen coordinate is valid and should be rendered, false otherwise.
 		bool WorldPositionToScreenPosition(Vector2D_t worldPosition, Vector2D_t& screenPosition) const;
+
+		void RenderActors(std::shared_ptr<entt::registry> reg) const;
+		void RenderWorld(std::shared_ptr<entt::registry> reg) const;
 	};
 
 }
