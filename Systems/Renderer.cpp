@@ -25,7 +25,6 @@ namespace asciidungeon
 		for (auto entity : comps)
 		{
 			// go through and display any entity with position + render components
-			// TODO: map world coordinates to screen coordinates (do this here or somewhere else?)
 			const auto [movement, render] = comps.get<PositionComponent, RenderComponent>(entity);
 			Vector2D_t renderPosition = { 0, 0 };
 			if (WorldPositionToScreenPosition({ movement.position.x, movement.position.y }, renderPosition))
