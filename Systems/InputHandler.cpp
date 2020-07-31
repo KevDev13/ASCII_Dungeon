@@ -22,7 +22,7 @@ namespace asciidungeon
 
 	InputHandler::~InputHandler() {}
 
-	void InputHandler::HandlePlayerInput(std::shared_ptr<entt::registry> reg, entt::entity& player) const
+	void InputHandler::HandlePlayerInput(std::shared_ptr<entt::registry> reg, entt::entity player) const
 	{
 		// player velocity
 		auto& playerVelocity = reg->get<VelocityComponent>(player);
