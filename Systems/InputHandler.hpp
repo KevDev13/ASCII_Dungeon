@@ -20,7 +20,7 @@ namespace asciidungeon
 		InputHandler();
 		~InputHandler();
 
-		void HandlePlayerInput(std::shared_ptr<entt::registry> reg, entt::entity& player) const;
+		void HandlePlayerInput(std::shared_ptr<entt::registry> reg, entt::entity player) const;
 
 	protected:
 		// keyboard inputs
