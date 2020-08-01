@@ -54,6 +54,8 @@ namespace asciidungeon
 		m_registry->emplace<VelocityComponent>(m_playerEntity);
 		m_registry->emplace<RenderComponent>(m_playerEntity, '@', DEFAULT_BACKGROUND_COLOR, TCODColor::green);
 
+		m_currentState = State::STARTUP;
+
 		m_initialized = true;
 		return m_initialized;
 	}
@@ -66,21 +68,33 @@ namespace asciidungeon
 			return false;
 		}
 
+		m_currentState = State::PLAYING;
+
 		// while window is still open
 		while (!TCODConsole::isWindowClosed() && !m_playerWantsToQuit)
 		{
-			m_inputHandler->HandlePlayerInput(m_registry, m_playerEntity);
-			// TODO: handle AI here
-			m_movementHandler->ProcessMovement(m_registry);
-			// TODO: change this to just calling the renderer, and call a window/GUI wrapper
-			// essentially the window and GUI wrappers should do everything that Engine::Render() does now
-			// but without calling the renderer, obviously
-			if (!Render())
+			switch (m_currentState)
 			{
-				return false;
+				case State::PLAYING:
+
+					m_inputHandler->HandlePlayerInput(m_registry, m_playerEntity, m_currentState);
+					// TODO: handle AI here
+					m_movementHandler->ProcessMovement(m_registry);
+					// TODO: change this to just calling the renderer, and call a window/GUI wrapper
+					// essentially the window and GUI wrappers should do everything that Engine::Render() does now
+					// but without calling the renderer, obviously
+					if (!Render())
+					{
+						return false;
+					}
+
+					break;
+
+				case State::QUIT:
+					m_playerWantsToQuit = true;
+					break;					
 			}
 		}
-
 		return true;
 	}
 

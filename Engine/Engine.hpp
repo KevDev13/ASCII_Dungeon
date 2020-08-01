@@ -13,6 +13,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "Renderer.hpp"
 #include "InputHandler.hpp"
 #include "MovementHandler.hpp"
+#include "State.hpp"
 
 namespace asciidungeon
 {
@@ -40,6 +41,8 @@ namespace asciidungeon
 		entt::entity m_playerEntity;
 
 		bool Render();
+
+		State m_currentState;
 	};
 
 }

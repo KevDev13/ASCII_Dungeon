@@ -22,7 +22,7 @@ namespace asciidungeon
 
 	InputHandler::~InputHandler() {}
 
-	void InputHandler::HandlePlayerInput(std::shared_ptr<entt::registry> reg, entt::entity player) const
+	void InputHandler::HandlePlayerInput(std::shared_ptr<entt::registry> reg, entt::entity player, State& currentState) const
 	{
 		// player velocity
 		auto& playerVelocity = reg->get<VelocityComponent>(player);
@@ -73,7 +73,7 @@ namespace asciidungeon
 
 			// player wants to quit
 			case TCODK_ESCAPE:
-				// TODO: setup a way to return that player wants to quit here so Engine (and eventually window wrapper class) knows to exit
+				currentState = State::QUIT;
 				break;
 
 			default:

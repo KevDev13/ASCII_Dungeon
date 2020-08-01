@@ -11,6 +11,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include "libtcod/libtcod.hpp"
 #include "entt/entt.hpp"
+#include "State.hpp"
 
 namespace asciidungeon
 {
@@ -20,7 +21,7 @@ namespace asciidungeon
 		InputHandler();
 		~InputHandler();
 
-		void HandlePlayerInput(std::shared_ptr<entt::registry> reg, entt::entity player) const;
+		void HandlePlayerInput(std::shared_ptr<entt::registry> reg, entt::entity player, State& currentState) const;
 
 	protected:
 		// keyboard inputs
