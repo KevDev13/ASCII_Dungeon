@@ -17,7 +17,6 @@ namespace asciidungeon
 	Engine::Engine()
 	{
 		m_initialized = false;
-		m_playerWantsToQuit = false;
 
 		{
 			using namespace std;
@@ -71,7 +70,7 @@ namespace asciidungeon
 		m_currentState = State::PLAYING;
 
 		// while window is still open
-		while (!TCODConsole::isWindowClosed() && !m_playerWantsToQuit)
+		while (!TCODConsole::isWindowClosed() && m_currentState != State::QUIT)
 		{
 			switch (m_currentState)
 			{
@@ -88,10 +87,6 @@ namespace asciidungeon
 						return false;
 					}
 
-					break;
-
-				case State::QUIT:
-					m_playerWantsToQuit = true;
 					break;					
 			}
 		}

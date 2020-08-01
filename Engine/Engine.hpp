@@ -26,11 +26,8 @@ namespace asciidungeon
 		bool Initialize();
 		bool Main();
 
-		inline bool PlayerWantsToQuit() const { return m_playerWantsToQuit; }
-
 	protected:
 		bool m_initialized;
-		bool m_playerWantsToQuit;
 
 		std::shared_ptr<entt::registry> m_registry;
 
