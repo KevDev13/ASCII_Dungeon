@@ -17,6 +17,7 @@ namespace asciidungeon
 {
 	extern const Vector2D_t MAP_UPPER_LEFT_CORNER;
 	extern const Vector2D_t MAP_LOWER_RIGHT_CORNER;
+
 	class Renderer
 	{
 	public:
@@ -31,6 +32,8 @@ namespace asciidungeon
 
 		void RenderActors(std::shared_ptr<entt::registry> reg) const;
 		void RenderWorld(std::shared_ptr<entt::registry> reg) const;
+
+		// TODO: for the mapping of map space to TCODColor, use an array of TCODColor here
 	};
 
 }
