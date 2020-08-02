@@ -13,6 +13,9 @@ namespace asciidungeon
 	{
 		int x;
 		int y;
+
+		Vector2D_t() = default;
+		Vector2D_t(int x_, int y_) : x(x_), y(y_) {}
 	};
 
 	inline Vector2D_t operator+ (const Vector2D_t& left, const Vector2D_t& right)
