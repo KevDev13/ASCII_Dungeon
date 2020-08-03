@@ -25,6 +25,12 @@ namespace asciidungeon
 			m_inputHandler = make_unique<InputHandler>();
 			m_movementHandler = make_unique<MovementHandler>();
 		}
+
+		m_windowWidth = 0;
+		m_windowHeight = 0;
+		m_windowTitle = "";
+		m_windowFullscreen = false;
+		m_maxFps = 0;
 	}
 
 	Engine::~Engine()
@@ -32,16 +38,39 @@ namespace asciidungeon
 		TCOD_quit();
 	}
 
+	bool Engine::SetInitialWindowProperties(int w, int h, std::string title, bool startFullscreen, int maxFps)
+	{
+		// check for bad conditions
+		if (h <= 0 || w <= 0 || maxFps <= 30)
+		{
+			return false;
+		}
+
+		m_windowWidth = w;
+		m_windowHeight = h;
+		m_windowTitle = title;
+		m_windowFullscreen = startFullscreen;
+		m_maxFps = maxFps;
+
+		return true;
+	}
+
 	bool Engine::Initialize()
 	{
+		// if window width is 0, that means SetInitialWindowProperties hasn't been called yet, so return false
+		if (m_windowWidth == 0)
+		{
+			return false;
+		}
+
 		// setup font file
 		TCODConsole::setCustomFont(FONT_FILE);
 
 		// init the window using SDL2
-		TCODConsole::initRoot(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, TCOD_RENDERER_SDL2);
+		TCODConsole::initRoot(m_windowWidth, m_windowHeight, m_windowTitle.c_str(), m_windowFullscreen, TCOD_RENDERER_SDL2);
 
 		// set maximum FPS
-		TCODSystem::setFps(MAXIMUM_FRAMES_PER_SECOND);
+		TCODSystem::setFps(m_maxFps);
 
 		// set default colors
 		TCODConsole::root->setDefaultBackground(DEFAULT_BACKGROUND_COLOR);
