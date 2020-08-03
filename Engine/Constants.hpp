@@ -16,7 +16,6 @@ namespace asciidungeon
 {
 	const char* FONT_FILE = "png/bitmap_col.png";
 
-	const char PLAYER_DISPLAY_CHAR = '@';
 	const TCODColor DEFAULT_BACKGROUND_COLOR = TCODColor::black;
 	const TCODColor DEFAULT_FOREGROUND_COLOR = TCODColor::white;
 
