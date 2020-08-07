@@ -19,11 +19,14 @@ namespace gage
 {
 	class Engine
 	{
+	protected:
+		// default max frames per second
+		const static int DEFAULT_MAX_FPS = 60;
 	public:
 		Engine();
 		~Engine();
 
-		bool SetInitialWindowProperties(int w, int h, std::string title, bool startFullscreen = false, int maxFps = 60);
+		bool SetInitialWindowProperties(int w, int h, std::string title, bool startFullscreen = false, int maxFps = DEFAULT_MAX_FPS);
 		bool Initialize();
 		bool Main();
 
