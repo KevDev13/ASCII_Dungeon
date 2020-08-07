@@ -28,13 +28,13 @@ namespace gage
 		TCODConsole::root->putChar(lowerRight.x, lowerRight.y, TCOD_CHAR_DSE);
 
 		// draw straight lines
-		for (int col = 1; col < lowerRight.x; ++col)
+		for (int col = upperLeft.x + 1; col < lowerRight.x; ++col)
 		{
 			TCODConsole::root->putChar(col, upperLeft.y, TCOD_CHAR_DHLINE);
 			TCODConsole::root->putChar(col, lowerRight.y, TCOD_CHAR_DHLINE);
 		}
 
-		for (int row = 1; row < lowerRight.y; ++row)
+		for (int row = upperLeft.y + 1; row < lowerRight.y; ++row)
 		{
 			TCODConsole::root->putChar(upperLeft.x, row, TCOD_CHAR_DVLINE);
 			TCODConsole::root->putChar(lowerRight.x, row, TCOD_CHAR_DVLINE);
