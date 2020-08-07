@@ -109,9 +109,8 @@ namespace gage
 					m_inputHandler->HandlePlayerInput(m_registry, m_playerEntity, m_currentState);
 					// TODO: handle AI here
 					m_movementHandler->ProcessMovement(m_registry);
-					// TODO: change this to just calling the renderer, and call a window/GUI wrapper
-					// essentially the window and GUI wrappers should do everything that Engine::Render() does now
-					// but without calling the renderer, obviously
+					// TODO: change this so that Render() will render appropriately depening on what state we're in
+					// i.e. in Main Menu, will display the menu, etc
 					if (!Render())
 					{
 						return false;
