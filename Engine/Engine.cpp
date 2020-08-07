@@ -133,6 +133,8 @@ namespace gage
 		TCODConsole::root->clear();
 
 		// draw GUI components
+		
+		// first, get coordinates for rectangle around map
 		Vector2D_t upperLeft = MAP_UPPER_LEFT_CORNER;
 		upperLeft.x -= 1;
 		upperLeft.y -= 1;
@@ -140,8 +142,14 @@ namespace gage
 		lowerRight.x += 1;
 		lowerRight.y += 1;
 		m_gui->DrawRectangle(upperLeft, lowerRight);
-		m_gui->DisplayFPS(Vector2D_t(69, 48));
-		m_gui->DisplayVersionInfo(Vector2D_t(69, 49), VERSION_MAJOR, VERSION_MINOR, VERSION_BUILD);
+		// display FPS
+		m_gui->DisplayText(Vector2D_t(69, 48), std::to_string(TCODSystem::getFps()));
+		// display version info
+		// build string first
+		std::string versionString = "v " + std::to_string(VERSION_MAJOR)
+			+ "." + std::to_string(VERSION_MINOR)
+			+ "." + std::to_string(VERSION_BUILD);
+		m_gui->DisplayText(Vector2D_t(69, 49), versionString);
 
 		// render world and all actors
 		m_renderer->RenderAll(m_registry);
