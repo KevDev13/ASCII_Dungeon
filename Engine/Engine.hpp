@@ -53,6 +53,7 @@ namespace gage
 
 		// Player entity
 		entt::entity m_playerEntity;
+		const char PLAYER_DISPLAY_CHAR = 1;
 
 		// current game state - will likely be moved to the main() eventually
 		State m_currentState;

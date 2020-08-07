@@ -81,7 +81,7 @@ namespace gage
 		Vector2D_t playerStart = { 10, 10 };	// TODO: temporary, will remove later
 		m_registry->emplace<PositionComponent>(m_playerEntity, playerStart);
 		m_registry->emplace<VelocityComponent>(m_playerEntity);
-		m_registry->emplace<RenderComponent>(m_playerEntity, '@', DEFAULT_BACKGROUND_COLOR, TCODColor::green);
+		m_registry->emplace<RenderComponent>(m_playerEntity, PLAYER_DISPLAY_CHAR, DEFAULT_BACKGROUND_COLOR, TCODColor::green);
 
 		m_currentState = State::STARTUP;
 
