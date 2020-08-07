@@ -24,6 +24,7 @@ namespace gage
 			m_renderer = make_unique<Renderer>();
 			m_inputHandler = make_unique<InputHandler>();
 			m_movementHandler = make_unique<MovementHandler>();
+			m_gui = make_unique<GUI>();
 		}
 
 		m_windowWidth = 0;
@@ -131,37 +132,16 @@ namespace gage
 
 		TCODConsole::root->clear();
 
-		// show GUI. This will eventually be it's own warpper class
-		{
-			// print border around world
-			TCODConsole::root->putChar(0, 0, TCOD_CHAR_DNW);
-			TCODConsole::root->putChar(0, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_DSW);
-			TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, 0, TCOD_CHAR_DNE);
-			TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_DSE);
-
-			for (int col = 1; col <= MAP_LOWER_RIGHT_CORNER.x; ++col)
-			{
-				TCODConsole::root->putChar(col, 0, TCOD_CHAR_DHLINE);
-				TCODConsole::root->putChar(col, MAP_LOWER_RIGHT_CORNER.y + 1, TCOD_CHAR_DHLINE);
-			}
-
-			for (int row = 1; row <= MAP_LOWER_RIGHT_CORNER.y; ++row)
-			{
-				TCODConsole::root->putChar(0, row, TCOD_CHAR_DVLINE);
-				TCODConsole::root->putChar(MAP_LOWER_RIGHT_CORNER.x + 1, row, TCOD_CHAR_DVLINE);
-			}
-
-			// print FPS
-			TCODConsole::root->printf(69, 48, std::to_string(TCODSystem::getFps()).c_str());
-
-			// build string for current s/w version
-			std::string versionString = "v " + std::to_string(VERSION_MAJOR)
-				+ "." + std::to_string(VERSION_MINOR)
-				+ "." + std::to_string(VERSION_BUILD);
-
-			// print current s/w version
-			TCODConsole::root->printf(69, 49, versionString.c_str());
-		}
+		// draw GUI components
+		Vector2D_t upperLeft = MAP_UPPER_LEFT_CORNER;
+		upperLeft.x -= 1;
+		upperLeft.y -= 1;
+		Vector2D_t lowerRight = MAP_LOWER_RIGHT_CORNER;
+		lowerRight.x += 1;
+		lowerRight.y += 1;
+		m_gui->DrawRectangle(upperLeft, lowerRight);
+		m_gui->DisplayFPS(Vector2D_t(69, 48));
+		m_gui->DisplayVersionInfo(Vector2D_t(69, 49), VERSION_MAJOR, VERSION_MINOR, VERSION_BUILD);
 
 		// render world and all actors
 		m_renderer->RenderAll(m_registry);

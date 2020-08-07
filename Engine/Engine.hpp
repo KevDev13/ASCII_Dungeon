@@ -14,6 +14,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "InputHandler.hpp"
 #include "MovementHandler.hpp"
 #include "State.hpp"
+#include "GUI.hpp"
 
 namespace gage
 {
@@ -58,6 +59,9 @@ namespace gage
 
 		// TODO: delete this eventually
 		bool Render();
+		
+		// GUI class
+		std::unique_ptr<GUI> m_gui;
 
 		// version info
 		const int VERSION_MAJOR = 0;
