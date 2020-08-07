@@ -25,12 +25,12 @@
     <Filter Include="Source Files\Systems">
       <UniqueIdentifier>{73b16fa3-4fbf-4cd7-a1c1-fefecfef7dd9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{5a0d7350-960b-411b-8d34-8a72645a20ee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AsciiDungeon.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\Engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Systems\Renderer.cpp">
@@ -41,6 +41,12 @@
     </ClCompile>
     <ClCompile Include="Systems\MovementHandler.cpp">
       <Filter>Source Files\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Engine.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GUI.cpp">
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +78,9 @@
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
     <ClInclude Include="Engine\State.hpp">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\GUI.hpp">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
