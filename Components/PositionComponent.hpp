@@ -9,7 +9,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include "Vector2D.hpp"
 
-namespace asciidungeon
+namespace gage
 {
 	struct PositionComponent
 	{

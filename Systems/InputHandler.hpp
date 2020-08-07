@@ -13,7 +13,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "entt/entt.hpp"
 #include "State.hpp"
 
-namespace asciidungeon
+namespace gage
 {
 	class InputHandler
 	{

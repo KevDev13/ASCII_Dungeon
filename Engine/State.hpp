@@ -7,7 +7,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #pragma once
 
-namespace asciidungeon
+namespace gage
 {
 	enum class State
 	{

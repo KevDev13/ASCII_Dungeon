@@ -15,7 +15,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "MovementHandler.hpp"
 #include "State.hpp"
 
-namespace asciidungeon
+namespace gage
 {
 	class Engine
 	{

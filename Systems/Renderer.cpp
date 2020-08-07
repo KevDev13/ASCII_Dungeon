@@ -11,7 +11,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "PositionComponent.hpp"
 #include "RenderComponent.hpp"
 
-namespace asciidungeon
+namespace gage
 {
 	Renderer::Renderer()
 	{

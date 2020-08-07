@@ -12,7 +12,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 //extern class TCODColor;
 
-namespace asciidungeon
+namespace gage
 {
 	const char* FONT_FILE = "png/bitmap_col.png";
 

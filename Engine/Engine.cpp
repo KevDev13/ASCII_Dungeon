@@ -12,7 +12,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "RenderComponent.hpp"
 #include "VelocityComponent.hpp"
 
-namespace asciidungeon
+namespace gage
 {
 	Engine::Engine()
 	{

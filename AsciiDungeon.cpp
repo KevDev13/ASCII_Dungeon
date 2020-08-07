@@ -13,7 +13,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "libtcod/libtcod.hpp"
 #include "Engine.hpp"
 
-using namespace asciidungeon;
+using namespace gage;
 
 const int WINDOW_SIZE_WIDTH = 80;
 const int WINDOW_SIZE_HEIGHT = 50;

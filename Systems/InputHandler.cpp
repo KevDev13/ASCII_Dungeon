@@ -8,7 +8,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "InputHandler.hpp"
 #include "VelocityComponent.hpp"
 
-namespace asciidungeon
+namespace gage
 {
 	InputHandler::InputHandler()
 	{
