@@ -6,8 +6,8 @@ Written by Kevin Garner. kg.dev@protonmail.com
 Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 */
 
-#include "libtcod/libtcod.hpp"
 #include "Renderer.hpp"
+#include "libtcod/libtcod.hpp"
 #include "PositionComponent.hpp"
 #include "RenderComponent.hpp"
 
@@ -29,8 +29,10 @@ namespace gage
 			Vector2D_t renderPosition = { 0, 0 };
 			if (WorldPositionToScreenPosition({ movement.position.x, movement.position.y }, renderPosition))
 			{
-				// TODO: get the background color of whatever is in the world here (i.e. path, grass, dirt, etc) and use that as the background color
-				TCODConsole::root->putCharEx(renderPosition.x, renderPosition.y, render.displayCharacter, render.foregroundColor, render.backgroundColor);
+				// display the character, then make the foreground color correct. Do it in this order to display correctly.
+				// doing it this way allowed the background color to not be changed
+				TCODConsole::root->putChar(renderPosition.x, renderPosition.y, render.displayCharacter);
+				TCODConsole::root->setCharForeground(renderPosition.x, renderPosition.y, render.foregroundColor);
 			}
 		}
 	}
@@ -38,12 +40,12 @@ namespace gage
 	void Renderer::RenderWorld(std::shared_ptr<entt::registry> reg) const
 	{
 		// for now we're just rendering a dark grey screen. Will eventually load the map and draw what is appropriate
-		for (int row = MAP_UPPER_LEFT_CORNER.y; row <= MAP_LOWER_RIGHT_CORNER.y; ++row)
+		for (int y = MAP_UPPER_LEFT_CORNER.y; y <= MAP_LOWER_RIGHT_CORNER.y; ++y)
 		{
-			for (int col = MAP_UPPER_LEFT_CORNER.x; col <= MAP_LOWER_RIGHT_CORNER.x; ++col)
+			for (int x = MAP_UPPER_LEFT_CORNER.x; x <= MAP_LOWER_RIGHT_CORNER.x; ++x)
 			{
-				// technically the foreground color doesn't really matter here, but making it the same as background just in case something gets messed up
-				TCODConsole::root->putCharEx(col, row, ' ', TCODColor::darkerGrey, TCODColor::darkerGrey);
+				// if the world uses any characters (i.e. for "texture" or something like that), do that here
+				TCODConsole::root->setCharBackground(x, y, TCODColor::darkerGrey);
 			}
 		}
 	}
