@@ -102,6 +102,7 @@ namespace gage
 		// while window is still open
 		while (!TCODConsole::isWindowClosed() && m_currentState != State::QUIT)
 		{
+			// TODO: move TCODConsole::root->clear() to here? with flush at the end of this while loop
 			switch (m_currentState)
 			{
 				case State::PLAYING:
