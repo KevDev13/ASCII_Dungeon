@@ -41,19 +41,8 @@ namespace gage
 		}
 	}
 
-	void GUI::DisplayFPS(Vector2D_t startPoint) const
+	void GUI::DisplayText(Vector2D_t startPoint, std::string text) const
 	{
-		TCODConsole::root->printf(startPoint.x, startPoint.y, std::to_string(TCODSystem::getFps()).c_str());
-	}
-	
-	void GUI::DisplayVersionInfo(Vector2D_t startPoint, const int major, const int minor, const int build) const
-	{
-		// build string
-		std::string versionString = "v " + std::to_string(major)
-			+ "." + std::to_string(minor)
-			+ "." + std::to_string(build);
-
-		// print current s/w version
-		TCODConsole::root->printf(startPoint.x, startPoint.y, versionString.c_str());
+		TCODConsole::root->printf(startPoint.x, startPoint.y, text.c_str());
 	}
 }

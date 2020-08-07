@@ -19,7 +19,6 @@ namespace gage
 		~GUI();
 
 		void DrawRectangle(Vector2D_t upperLeft, Vector2D_t lowerRight) const;
-		void DisplayFPS(Vector2D_t startPoint) const;
-		void DisplayVersionInfo(Vector2D_t startPoint, const int major, const int minor, const int build) const;
+		void DisplayText(Vector2D_t startPoint, std::string text) const;
 	};
 }
