@@ -106,6 +106,7 @@ namespace gage
 			{
 				case State::PLAYING:
 
+					// TODO: have a method that will process entities & systems? might be easier, so can only call it if needed
 					m_inputHandler->HandlePlayerInput(m_registry, m_playerEntity, m_currentState);
 					// TODO: handle AI here
 					m_movementHandler->ProcessMovement(m_registry);
