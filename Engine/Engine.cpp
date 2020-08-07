@@ -150,6 +150,9 @@ namespace gage
 			+ "." + std::to_string(VERSION_MINOR)
 			+ "." + std::to_string(VERSION_BUILD);
 		m_gui->DisplayText(Vector2D_t(69, 49), versionString);
+		// draw game name & author credit
+		m_gui->DisplayText(Vector2D_t(60, 0), "ASCII Dungeon");
+		m_gui->DisplayText(Vector2D_t(59, 1), "by Kevin Garner");
 
 		// render world and all actors
 		m_renderer->RenderAll(m_registry);
