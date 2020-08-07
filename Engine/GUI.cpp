@@ -19,25 +19,25 @@ namespace gage
 
 	}
 
-	void GUI::DrawRectangle(Vector2D_t upperLeft, Vector2D_t lowerRight) const
+	void GUI::DrawRectangle(Vector2D_t upperLeft, Vector2D_t lowerRight, bool singleLine) const
 	{
 		// draw corners
-		TCODConsole::root->putChar(upperLeft.x, upperLeft.y, TCOD_CHAR_DNW);
-		TCODConsole::root->putChar(upperLeft.x, lowerRight.y, TCOD_CHAR_DSW);
-		TCODConsole::root->putChar(lowerRight.x, upperLeft.y, TCOD_CHAR_DNE);
-		TCODConsole::root->putChar(lowerRight.x, lowerRight.y, TCOD_CHAR_DSE);
+		TCODConsole::root->putChar(upperLeft.x, upperLeft.y, singleLine ? TCOD_CHAR_NW : TCOD_CHAR_DNW);
+		TCODConsole::root->putChar(upperLeft.x, lowerRight.y, singleLine ? TCOD_CHAR_SW : TCOD_CHAR_DSW);
+		TCODConsole::root->putChar(lowerRight.x, upperLeft.y, singleLine ? TCOD_CHAR_NE : TCOD_CHAR_DNE);
+		TCODConsole::root->putChar(lowerRight.x, lowerRight.y, singleLine ? TCOD_CHAR_SE : TCOD_CHAR_DSE);
 
 		// draw straight lines
 		for (int col = upperLeft.x + 1; col < lowerRight.x; ++col)
 		{
-			TCODConsole::root->putChar(col, upperLeft.y, TCOD_CHAR_DHLINE);
-			TCODConsole::root->putChar(col, lowerRight.y, TCOD_CHAR_DHLINE);
+			TCODConsole::root->putChar(col, upperLeft.y, singleLine ? TCOD_CHAR_HLINE : TCOD_CHAR_DHLINE);
+			TCODConsole::root->putChar(col, lowerRight.y, singleLine ? TCOD_CHAR_HLINE : TCOD_CHAR_DHLINE);
 		}
 
 		for (int row = upperLeft.y + 1; row < lowerRight.y; ++row)
 		{
-			TCODConsole::root->putChar(upperLeft.x, row, TCOD_CHAR_DVLINE);
-			TCODConsole::root->putChar(lowerRight.x, row, TCOD_CHAR_DVLINE);
+			TCODConsole::root->putChar(upperLeft.x, row, singleLine ? TCOD_CHAR_VLINE : TCOD_CHAR_DVLINE);
+			TCODConsole::root->putChar(lowerRight.x, row, singleLine ? TCOD_CHAR_VLINE : TCOD_CHAR_DVLINE);
 		}
 	}
 

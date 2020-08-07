@@ -18,7 +18,7 @@ namespace gage
 		GUI();
 		~GUI();
 
-		void DrawRectangle(Vector2D_t upperLeft, Vector2D_t lowerRight) const;
+		void DrawRectangle(Vector2D_t upperLeft, Vector2D_t lowerRight, bool singleLine = true) const;
 		void DisplayText(Vector2D_t startPoint, std::string text) const;
 	};
 }

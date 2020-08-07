@@ -142,7 +142,7 @@ namespace gage
 		Vector2D_t lowerRight = MAP_LOWER_RIGHT_CORNER;
 		lowerRight.x += 1;
 		lowerRight.y += 1;
-		m_gui->DrawRectangle(upperLeft, lowerRight);
+		m_gui->DrawRectangle(upperLeft, lowerRight, false);
 		// display FPS
 		m_gui->DisplayText(Vector2D_t(69, 48), std::to_string(TCODSystem::getFps()));
 		// display version info
