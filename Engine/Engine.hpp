@@ -19,9 +19,11 @@ namespace gage
 {
 	class Engine
 	{
+		// put any constants needed in the .hpp file here, otherwise everything goes after the public items
 	protected:
 		// default max frames per second
 		const static int DEFAULT_MAX_FPS = 60;
+
 	public:
 		Engine();
 		~Engine();
