@@ -29,11 +29,10 @@ namespace gage
 
 		// key for input
 		TCOD_key_t key;
-		TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
-
-		//TCOD_mouse_t mouse;
-		//TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, &mouse);
-
+		// mouse input
+		TCOD_mouse_t mouse;
+		TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS | TCOD_EVENT_MOUSE_MOVE | TCOD_EVENT_MOUSE_PRESS, &key, &mouse);
+		
 		switch (key.vk)
 		{
 			// if a character was pressed
