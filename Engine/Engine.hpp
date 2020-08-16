@@ -67,7 +67,7 @@ namespace gage
 		// version info
 		const int VERSION_MAJOR = 0;
 		const int VERSION_MINOR = 0;
-		const int VERSION_BUILD = 1;
+		const int VERSION_BUILD = 2;
 	};
 
 }
