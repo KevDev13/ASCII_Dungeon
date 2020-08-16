@@ -144,7 +144,7 @@ namespace gage
 		lowerRight.y += 1;
 		m_gui->DrawRectangle(upperLeft, lowerRight, false);
 		// display FPS
-		m_gui->DisplayText(Vector2D_t(69, 48), std::to_string(TCODSystem::getFps()));
+		m_gui->DisplayText(Vector2D_t(69, 48), "FPS: " + std::to_string(TCODSystem::getFps()));
 		// display version info
 		// build string first
 		std::string versionString = "v " + std::to_string(VERSION_MAJOR)
