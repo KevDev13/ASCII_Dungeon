@@ -158,6 +158,12 @@ namespace gage
 		// render world and all actors
 		m_renderer->RenderAll(m_registry);
 
+		if (TCODConsole::root->hasMouseFocus())
+		{
+			auto mouse = TCODMouse::getStatus();
+			TCODConsole::root->setCharBackground(mouse.cx, mouse.cy, TCODColor::yellow);
+		}
+
 		TCODConsole::root->flush();
 
 		return true;
