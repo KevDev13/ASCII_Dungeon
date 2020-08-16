@@ -31,52 +31,56 @@ namespace gage
 		TCOD_key_t key;
 		// mouse input
 		TCOD_mouse_t mouse;
-		TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS | TCOD_EVENT_MOUSE_MOVE | TCOD_EVENT_MOUSE_PRESS, &key, &mouse);
+		TCOD_event_t ev = TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS | TCOD_EVENT_MOUSE_MOVE | TCOD_EVENT_MOUSE_PRESS, &key, &mouse);
 		
-		switch (key.vk)
+		// handle keyboard input
+		if (ev == TCOD_EVENT_KEY_PRESS)
 		{
-			// if a character was pressed
-			case TCODK_CHAR:
-			{ // using braces here to avoid error of declaring char input within a case statement. Only need the variable in this case anyway.
-				char input = key.c;
+			switch (key.vk)
+			{
+				// if a character was pressed
+				case TCODK_CHAR:
+				{ // using braces here to avoid error of declaring char input within a case statement. Only need the variable in this case anyway.
+					char input = key.c;
 
-				// have to use nexted if else statements instead of a switch statement since C++ can't use variables in switch statements
-				// if we remove the ability to remap keyboard inputs and make these all constants, can go back to a switch statement
-				if (input == moveUp)
-				{
-					playerVelocity = { 0, -1 };
-				}
-				else if (input == moveDown)
-				{
-					playerVelocity = { 0, 1 };
-				}
-				else if (input == moveLeft)
-				{
-					playerVelocity = { -1, 0 };
-				}
-				else if (input == moveRight)
-				{
-					playerVelocity = { 1, 0 };
-				}
-				else
-				{
+					// have to use nexted if else statements instead of a switch statement since C++ can't use variables in switch statements
+					// if we remove the ability to remap keyboard inputs and make these all constants, can go back to a switch statement
+					if (input == moveUp)
+					{
+						playerVelocity = { 0, -1 };
+					}
+					else if (input == moveDown)
+					{
+						playerVelocity = { 0, 1 };
+					}
+					else if (input == moveLeft)
+					{
+						playerVelocity = { -1, 0 };
+					}
+					else if (input == moveRight)
+					{
+						playerVelocity = { 1, 0 };
+					}
+					else
+					{
 
-				}
-				
-				if (input == inventory)
-				{
+					}
 
+					if (input == inventory)
+					{
+
+					}
 				}
+				break;
+
+				// player wants to quit
+				case TCODK_ESCAPE:
+					currentState = State::QUIT;
+					break;
+
+				default:
+					break;
 			}
-			break;
-
-			// player wants to quit
-			case TCODK_ESCAPE:
-				currentState = State::QUIT;
-				break;
-
-			default:
-				break;
 		}
 	}
 }
