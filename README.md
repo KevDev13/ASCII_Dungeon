@@ -4,4 +4,4 @@ A small, ASCII dungeon crawler written using libtcod. This is very much so a wor
 
 Screenshot (it's not much currently):
 
-![It's not much but it's mine](https://github.com/KevDev13/ASCII_Dungeon/blob/master/Screenshots/screenshot_readme.jpg?raw=true)
+![It's not much but it's mine](https://github.com/KevDev13/ASCII_Dungeon/blob/master/Screenshots/screenshot_v0_0_2.jpg?raw=true)
