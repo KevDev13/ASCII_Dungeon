@@ -31,7 +31,7 @@ namespace gage
 		TCOD_key_t key;
 		// mouse input
 		TCOD_mouse_t mouse;
-		TCOD_event_t ev = TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS | TCOD_EVENT_MOUSE_MOVE | TCOD_EVENT_MOUSE_PRESS, &key, &mouse);
+		TCOD_event_t ev = TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS | TCOD_EVENT_MOUSE_PRESS, &key, &mouse);
 		
 		// handle keyboard input
 		if (ev == TCOD_EVENT_KEY_PRESS)
