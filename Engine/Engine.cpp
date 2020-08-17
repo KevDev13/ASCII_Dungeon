@@ -70,6 +70,9 @@ namespace gage
 		// init the window using SDL2
 		TCODConsole::initRoot(m_windowWidth, m_windowHeight, m_windowTitle.c_str(), m_windowFullscreen, TCOD_RENDERER_SDL2);
 
+		// don't show the cursor
+		TCODMouse::showCursor(false);
+
 		// set maximum FPS
 		TCODSystem::setFps(m_maxFps);
 
