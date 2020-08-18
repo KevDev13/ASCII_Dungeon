@@ -168,6 +168,15 @@ namespace gage
 		{
 			auto mouse = TCODMouse::getStatus();
 			TCODConsole::root->setCharBackground(mouse.cx, mouse.cy, TCODColor::yellow);
+
+			// "cast" mouse position to a vector
+			Vector2D_t mousePosition = { mouse.cx, mouse.cy };
+
+			Vector2D_t playerPosition = m_registry->get<PositionComponent>(m_playerEntity).position;
+			if (playerPosition == mousePosition)
+			{
+				m_gui->DisplayText(Vector2D_t(10, 49), "This is you");
+			}
 		}
 
 		TCODConsole::root->flush();
