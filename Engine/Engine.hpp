@@ -55,6 +55,9 @@ namespace gage
 		entt::entity m_playerEntity;
 		const char PLAYER_DISPLAY_CHAR = 1;
 
+		// mouse entity
+		entt::entity m_mouseEntity;
+
 		// current game state - will likely be moved to the main() eventually
 		State m_currentState;
 

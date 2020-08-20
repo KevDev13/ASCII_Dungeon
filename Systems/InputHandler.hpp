@@ -21,7 +21,7 @@ namespace gage
 		InputHandler();
 		~InputHandler();
 
-		void HandlePlayerInput(std::shared_ptr<entt::registry> reg, entt::entity player, State& currentState) const;
+		void HandlePlayerInput(std::shared_ptr<entt::registry> reg, entt::entity player, entt::entity mouse, State& currentState) const;
 
 	protected:
 		// keyboard inputs

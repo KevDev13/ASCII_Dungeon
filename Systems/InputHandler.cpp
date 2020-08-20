@@ -22,7 +22,7 @@ namespace gage
 
 	InputHandler::~InputHandler() {}
 
-	void InputHandler::HandlePlayerInput(std::shared_ptr<entt::registry> reg, entt::entity player, State& currentState) const
+	void InputHandler::HandlePlayerInput(std::shared_ptr<entt::registry> reg, entt::entity player, entt::entity mouse, State& currentState) const
 	{
 		// player velocity
 		auto& playerVelocity = reg->get<VelocityComponent>(player);
@@ -30,8 +30,8 @@ namespace gage
 		// key for input
 		TCOD_key_t key;
 		// mouse input
-		TCOD_mouse_t mouse;
-		TCOD_event_t ev = TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS | TCOD_EVENT_MOUSE_PRESS, &key, &mouse);
+		TCOD_mouse_t mouseEvent;
+		TCOD_event_t ev = TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS | TCOD_EVENT_MOUSE_PRESS, &key, &mouseEvent);
 		
 		// handle keyboard input
 		if (ev == TCOD_EVENT_KEY_PRESS)
