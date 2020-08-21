@@ -83,5 +83,8 @@
     <ClInclude Include="Engine\GUI.hpp">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="Components\MouseStatus.hpp">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
