@@ -26,7 +26,6 @@ namespace gage
 		{
 			// get all position and velocity components, then add velocity to position
 			// TODO: likely change this to a message such that only entities with velocities != 0 get called, make this more efficient
-			// TODO: ensure movement is valid (though this may involve other components, such as a collision handler system/component
 			auto [pos, vel] = comps.get<PositionComponent, VelocityComponent>(entity);
 			pos.position += vel.velocity;
 
