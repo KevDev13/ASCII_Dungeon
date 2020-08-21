@@ -44,7 +44,7 @@ namespace gage
 		{
 			for (int x = MAP_UPPER_LEFT_CORNER.x; x <= MAP_LOWER_RIGHT_CORNER.x; ++x)
 			{
-				// if the world uses any characters (i.e. for "texture" or something like that), do that here
+				// if the world uses any characters (i.e. for "texture" or something like that), do that here with putChar
 				TCODConsole::root->setCharBackground(x, y, TCODColor::darkerGrey);
 			}
 		}
