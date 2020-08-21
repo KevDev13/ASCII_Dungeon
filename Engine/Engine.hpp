@@ -61,7 +61,7 @@ namespace gage
 		// current game state - will likely be moved to the main() eventually
 		State m_currentState;
 
-		// TODO: delete this eventually
+		// TODO: delete this eventually, OR change it so it renders correctly based off of game state (m_currentState)
 		bool Render();
 		
 		// GUI class
