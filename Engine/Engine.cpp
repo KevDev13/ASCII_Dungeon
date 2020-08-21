@@ -78,15 +78,16 @@ namespace gage
 		TCODSystem::setFps(m_maxFps);
 
 		// set default colors
-		TCODConsole::root->setDefaultBackground(DEFAULT_BACKGROUND_COLOR);
-		TCODConsole::root->setDefaultForeground(DEFAULT_FOREGROUND_COLOR);
+		const auto [defaultBackColor, defaultForeColor] = m_gui->GetDefaultColors();
+		TCODConsole::root->setDefaultBackground(defaultBackColor);
+		TCODConsole::root->setDefaultForeground(defaultForeColor);
 
 		// initialize player entity
 		m_playerEntity = m_registry->create();
 		Vector2D_t playerStart = { 10, 10 };	// TODO: temporary, will remove later
 		m_registry->emplace<PositionComponent>(m_playerEntity, playerStart);
 		m_registry->emplace<VelocityComponent>(m_playerEntity);
-		m_registry->emplace<RenderComponent>(m_playerEntity, PLAYER_DISPLAY_CHAR, DEFAULT_BACKGROUND_COLOR, TCODColor::green);
+		m_registry->emplace<RenderComponent>(m_playerEntity, PLAYER_DISPLAY_CHAR, defaultBackColor, TCODColor::green);
 
 		// add mouse component
 		m_mouseEntity = m_registry->create();
