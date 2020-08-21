@@ -90,7 +90,7 @@ namespace gage
 					break;
 			}
 		}
-		else if (ev == TCOD_EVENT_MOUSE_PRESS)
+		else if (ev == TCOD_EVENT_MOUSE_PRESS && mouseEvent.lbutton)
 		{
 			mouseStatus.clicked = true;
 		}
