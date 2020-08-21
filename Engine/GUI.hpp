@@ -27,8 +27,11 @@ namespace gage
 		inline TCODColor GetDefaultForegroundColor() const { return DEFAULT_FOREGROUND_COLOR; }
 		inline std::tuple<TCODColor, TCODColor> GetDefaultColors() const { return { DEFAULT_BACKGROUND_COLOR, DEFAULT_FOREGROUND_COLOR }; }
 
+		inline std::string GetDefaultFontFile() const { return DEFAULT_FONT_FILE; }
+
 	protected:
 		static const TCODColor DEFAULT_BACKGROUND_COLOR;// black
 		static const TCODColor DEFAULT_FOREGROUND_COLOR;// white
+		static const std::string DEFAULT_FONT_FILE;
 	};
 }

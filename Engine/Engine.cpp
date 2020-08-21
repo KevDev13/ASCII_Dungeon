@@ -66,7 +66,7 @@ namespace gage
 		}
 
 		// setup font file
-		TCODConsole::setCustomFont(FONT_FILE);
+		TCODConsole::setCustomFont(m_gui->GetDefaultFontFile().c_str());
 
 		// init the window using SDL2
 		TCODConsole::initRoot(m_windowWidth, m_windowHeight, m_windowTitle.c_str(), m_windowFullscreen, TCOD_RENDERER_SDL2);

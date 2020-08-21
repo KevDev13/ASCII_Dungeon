@@ -13,6 +13,9 @@ namespace gage
 	const TCODColor GUI::DEFAULT_BACKGROUND_COLOR = TCODColor::black;
 	const TCODColor GUI::DEFAULT_FOREGROUND_COLOR = TCODColor::white;
 
+	// set default font file
+	const std::string GUI::DEFAULT_FONT_FILE = "png/bitmap_col.png";
+
 	GUI::GUI()
 	{
 

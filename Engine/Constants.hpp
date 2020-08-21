@@ -14,8 +14,6 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 namespace gage
 {
-	const char* FONT_FILE = "png/bitmap_col.png";
-
 	const Vector2D_t MAP_UPPER_LEFT_CORNER = { 1, 1 };
 	const Vector2D_t MAP_LOWER_RIGHT_CORNER = { 47, 37 };
 }
