@@ -157,11 +157,8 @@ namespace gage
 		// display FPS
 		m_gui->DisplayText(Vector2D_t(69, 48), "FPS: " + std::to_string(TCODSystem::getFps()));
 		// display version info
-		// build string first
-		std::string versionString = "v " + std::to_string(VERSION_MAJOR)
-			+ "." + std::to_string(VERSION_MINOR)
-			+ "." + std::to_string(VERSION_BUILD);
-		m_gui->DisplayText(Vector2D_t(69, 49), versionString);
+		m_gui->DisplayText(Vector2D_t(69, 49), BuildVerionString());
+
 		// draw game name & author credit
 		m_gui->DisplayText(Vector2D_t(60, 0), "ASCII Dungeon");
 		m_gui->DisplayText(Vector2D_t(59, 1), "by Kevin Garner");
@@ -201,5 +198,12 @@ namespace gage
 		TCODConsole::root->flush();
 
 		return true;
+	}
+
+	std::string Engine::BuildVerionString()
+	{
+		return "v " + std::to_string(VERSION_MAJOR)
+			+ "." + std::to_string(VERSION_MINOR)
+			+ "." + std::to_string(VERSION_BUILD);
 	}
 }

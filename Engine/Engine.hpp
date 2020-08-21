@@ -71,6 +71,7 @@ namespace gage
 		const int VERSION_MAJOR = 0;
 		const int VERSION_MINOR = 0;
 		const int VERSION_BUILD = 2;
+		std::string BuildVerionString();
 	};
 
 }
