@@ -11,6 +11,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "PositionComponent.hpp"
 #include "RenderComponent.hpp"
 #include "VelocityComponent.hpp"
+#include "MouseStatus.hpp"
 
 namespace gage
 {
@@ -86,6 +87,10 @@ namespace gage
 		m_registry->emplace<PositionComponent>(m_playerEntity, playerStart);
 		m_registry->emplace<VelocityComponent>(m_playerEntity);
 		m_registry->emplace<RenderComponent>(m_playerEntity, PLAYER_DISPLAY_CHAR, DEFAULT_BACKGROUND_COLOR, TCODColor::green);
+
+		// add mouse component
+		m_mouseEntity = m_registry->create();
+		m_registry->emplace<MouseStatus>(m_mouseEntity);
 
 		// initial state = startup
 		m_currentState = State::STARTUP;
@@ -171,14 +176,21 @@ namespace gage
 			auto mouse = TCODMouse::getStatus();
 			TCODConsole::root->setCharBackground(mouse.cx, mouse.cy, TCODColor::yellow);
 
-			// "cast" mouse position to a vector
-			Vector2D_t mousePosition = { mouse.cx, mouse.cy };
+			// get mouse info
+			const auto& mouseStatus = m_registry->get<MouseStatus>(m_mouseEntity);
+			Vector2D_t mousePosition = mouseStatus.position;
 
 			// TODO: this is just a demo, eventually update to show info for any actor/anything else in the world
 			Vector2D_t playerPosition = m_registry->get<PositionComponent>(m_playerEntity).position;
 			if (playerPosition == mousePosition)
 			{
 				m_gui->DisplayText(Vector2D_t(10, 49), "This is you");
+			}
+
+			// if mouse was clicked and mouse was over player. TODO: update this to check for anything clickable
+			if (mouseStatus.clicked && mousePosition == playerPosition)
+			{
+				m_gui->DisplayText(Vector2D_t(10, 48), "You clicked yourself!");
 			}
 		}
 

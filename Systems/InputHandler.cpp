@@ -7,6 +7,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include "InputHandler.hpp"
 #include "VelocityComponent.hpp"
+#include "MouseStatus.hpp"
 
 namespace gage
 {
@@ -27,11 +28,18 @@ namespace gage
 		// player velocity
 		auto& playerVelocity = reg->get<VelocityComponent>(player);
 
+		// mouse status
+		auto& mouseStatus = reg->get<MouseStatus>(mouse);
+
 		// key for input
 		TCOD_key_t key;
 		// mouse input
 		TCOD_mouse_t mouseEvent;
 		TCOD_event_t ev = TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS | TCOD_EVENT_MOUSE_PRESS, &key, &mouseEvent);
+
+		// set position, and reset clicked to false
+		mouseStatus.position = { mouseEvent.cx, mouseEvent.cy };
+		mouseStatus.clicked = false;
 		
 		// handle keyboard input
 		if (ev == TCOD_EVENT_KEY_PRESS)
@@ -81,6 +89,10 @@ namespace gage
 				default:
 					break;
 			}
+		}
+		else if (ev == TCOD_EVENT_MOUSE_PRESS)
+		{
+			mouseStatus.clicked = true;
 		}
 	}
 }
