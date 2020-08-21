@@ -48,5 +48,15 @@ namespace gage
 		return !(left == right);
 	}
 
-	// TODO: add += operator
+	inline Vector2D_t& operator+= (Vector2D_t& left, const Vector2D_t& right)
+	{
+		left = left + right;
+		return left;
+	}
+
+	inline Vector2D_t& operator-= (Vector2D_t& left, const Vector2D_t& right)
+	{
+		left = left - right;
+		return left;
+	}
 }
