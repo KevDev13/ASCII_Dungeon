@@ -30,8 +30,8 @@ namespace gage
 		inline std::string GetDefaultFontFile() const { return DEFAULT_FONT_FILE; }
 
 	protected:
-		static const TCODColor DEFAULT_BACKGROUND_COLOR;// black
-		static const TCODColor DEFAULT_FOREGROUND_COLOR;// white
+		static const TCODColor DEFAULT_BACKGROUND_COLOR;
+		static const TCODColor DEFAULT_FOREGROUND_COLOR;
 		static const std::string DEFAULT_FONT_FILE;
 	};
 }

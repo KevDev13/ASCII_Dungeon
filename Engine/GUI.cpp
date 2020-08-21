@@ -9,11 +9,9 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 namespace gage
 {
-	// set default colors
+	// set default constants
 	const TCODColor GUI::DEFAULT_BACKGROUND_COLOR = TCODColor::black;
 	const TCODColor GUI::DEFAULT_FOREGROUND_COLOR = TCODColor::white;
-
-	// set default font file
 	const std::string GUI::DEFAULT_FONT_FILE = "png/bitmap_col.png";
 
 	GUI::GUI()
