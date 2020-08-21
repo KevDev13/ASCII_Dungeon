@@ -172,13 +172,16 @@ namespace gage
 		// handle mouse. Do this last so the mouse cursor will not get covered by anything else (i.e. world, actors, etc)
 		if (TCODConsole::root->hasMouseFocus())
 		{
-			//auto mouse = TCODMouse::getStatus();
+			// get current mouse status
+			auto mouse = TCODMouse::getStatus();
+			Vector2D_t mousePosition = { mouse.cx, mouse.cy };	// use this as the current mouse position
 
-			// get mouse info
-			const auto& mouseStatus = m_registry->get<MouseStatus>(m_mouseEntity);
-			Vector2D_t mousePosition = mouseStatus.position;
 			// move custom mouse cursor
 			TCODConsole::root->setCharBackground(mousePosition.x, mousePosition.y, TCODColor::yellow);
+
+			// get mouse info
+			auto& mouseStatus = m_registry->get<MouseStatus>(m_mouseEntity);
+			Vector2D_t mousePosWhenClicked = mouseStatus.position;	// this is only used for info on where the mouse was when user clicked the mouse button
 
 			// TODO: this is just a demo, eventually update to show info for any actor/anything else in the world
 			Vector2D_t playerPosition = m_registry->get<PositionComponent>(m_playerEntity).position;
@@ -188,9 +191,10 @@ namespace gage
 			}
 
 			// if mouse was clicked and mouse was over player. TODO: update this to check for anything clickable
-			if (mouseStatus.clicked && mousePosition == playerPosition)
+			if (mouseStatus.clicked && mousePosWhenClicked == playerPosition)
 			{
 				m_gui->DisplayText(Vector2D_t(10, 48), "You clicked yourself!");
+				mouseStatus.clicked = false;	// just to be sure we don't get false positives
 			}
 		}
 
