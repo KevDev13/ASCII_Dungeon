@@ -45,15 +45,17 @@ namespace gage
 		int m_maxFps;
 
 		// ECS stuff
+		// main registry containing all components
 		std::shared_ptr<entt::registry> m_registry;
 
+		// Systems
 		std::unique_ptr<Renderer> m_renderer;
 		std::unique_ptr<InputHandler> m_inputHandler;
 		std::unique_ptr<MovementHandler> m_movementHandler;
 
 		// Player entity
 		entt::entity m_playerEntity;
-		const char PLAYER_DISPLAY_CHAR = 1;
+		const char PLAYER_DISPLAY_CHAR = 1;	// 1 = smiley face with the png/bitmap_col.png file.
 
 		// mouse entity
 		entt::entity m_mouseEntity;
