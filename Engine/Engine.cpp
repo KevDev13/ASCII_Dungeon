@@ -172,13 +172,13 @@ namespace gage
 		// handle mouse. Do this last so the mouse cursor will not get covered by anything else (i.e. world, actors, etc)
 		if (TCODConsole::root->hasMouseFocus())
 		{
-			// move custom mouse cursor
-			auto mouse = TCODMouse::getStatus();
-			TCODConsole::root->setCharBackground(mouse.cx, mouse.cy, TCODColor::yellow);
+			//auto mouse = TCODMouse::getStatus();
 
 			// get mouse info
 			const auto& mouseStatus = m_registry->get<MouseStatus>(m_mouseEntity);
 			Vector2D_t mousePosition = mouseStatus.position;
+			// move custom mouse cursor
+			TCODConsole::root->setCharBackground(mousePosition.x, mousePosition.y, TCODColor::yellow);
 
 			// TODO: this is just a demo, eventually update to show info for any actor/anything else in the world
 			Vector2D_t playerPosition = m_registry->get<PositionComponent>(m_playerEntity).position;
