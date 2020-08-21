@@ -149,11 +149,10 @@ namespace gage
 		
 		// first, get coordinates for rectangle around map
 		Vector2D_t upperLeft = MAP_UPPER_LEFT_CORNER;
-		upperLeft.x -= 1;
-		upperLeft.y -= 1;
+		upperLeft -= {1, 1};
 		Vector2D_t lowerRight = MAP_LOWER_RIGHT_CORNER;
-		lowerRight.x += 1;
-		lowerRight.y += 1;
+		lowerRight += {1, 1};
+
 		m_gui->DrawRectangle(upperLeft, lowerRight, false);
 		// display FPS
 		m_gui->DisplayText(Vector2D_t(69, 48), "FPS: " + std::to_string(TCODSystem::getFps()));
