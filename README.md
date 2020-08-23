@@ -1,6 +1,6 @@
 # ASCII_Dungeon
 
-A small, ASCII dungeon crawler. Utilizes the libtcod library and entt for ECS.
+A small, ASCII-graphics dungeon crawler. Utilizes the libtcod library and entt for ECS.
 
 Still very much so a work in progress.
 
