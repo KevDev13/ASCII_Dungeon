@@ -157,6 +157,7 @@ namespace gage
 		m_gui->DrawRectangle(upperLeft, lowerRight, false);
 
 		// this is temporary, but display player position in world space
+		// TODO: remove this
 		Vector2D_t playerPos = m_registry->get<PositionComponent>(m_playerEntity).position;
 		m_gui->DisplayText(Vector2D_t(69, 47), std::to_string(playerPos.x) + ", " + std::to_string(playerPos.y));
 
