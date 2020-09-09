@@ -36,6 +36,7 @@
     <ClInclude Include="Engine\Engine.hpp" />
     <ClInclude Include="Engine\GUI.hpp" />
     <ClInclude Include="Engine\State.hpp" />
+    <ClInclude Include="MapSpace.hpp" />
     <ClInclude Include="Systems\InputHandler.hpp" />
     <ClInclude Include="Systems\MovementHandler.hpp" />
     <ClInclude Include="Systems\Renderer.hpp" />
