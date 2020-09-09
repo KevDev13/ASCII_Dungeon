@@ -86,8 +86,8 @@
     <ClInclude Include="Components\MouseStatus.hpp">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="MapSpace.hpp">
-      <Filter>Header Files\Components</Filter>
+    <ClInclude Include="Engine\MapSpace.hpp">
+      <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
