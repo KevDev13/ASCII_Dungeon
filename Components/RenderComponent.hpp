@@ -16,7 +16,7 @@ namespace gage
 
 	struct RenderComponent
 	{
-		TCODColor backgroundColor;
+		TCODColor backgroundColor;	// TODO: can likely delete this
 		TCODColor foregroundColor;
 		char displayCharacter;
 
