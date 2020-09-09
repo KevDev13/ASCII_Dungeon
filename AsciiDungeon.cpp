@@ -13,8 +13,6 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "libtcod/libtcod.hpp"
 #include "Engine.hpp"
 
-using namespace gage;
-
 const int WINDOW_SIZE_WIDTH = 80;
 const int WINDOW_SIZE_HEIGHT = 50;
 const std::string WINDOW_TITLE = "ASCII Dungeon";
@@ -23,7 +21,7 @@ const int MAXIMUM_FRAMES_PER_SECOND = 60;
 
 int main()
 {
-	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
+	std::unique_ptr<gage::Engine> engine = std::make_unique<gage::Engine>();
 
 	if (!engine->SetInitialWindowProperties(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, MAXIMUM_FRAMES_PER_SECOND))
 	{
