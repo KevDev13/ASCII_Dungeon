@@ -12,10 +12,19 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 namespace gage
 {
+	enum class MapSpaceType
+	{
+		GROUND,
+		WATER,
+		WALL,
+		DOOR
+	};
+
 	struct MapSpace
 	{
 		RenderComponent renderInformation;
 		bool willCollideWith;	// true = player/NPC cannot pass into this square, false = they can
+		MapSpaceType type;
 
 		MapSpace() = default;
 	};
