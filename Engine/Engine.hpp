@@ -15,6 +15,8 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "MovementHandler.hpp"
 #include "State.hpp"
 #include "GUI.hpp"
+#include "Map.hpp"
+#include "MapSpace.hpp"
 
 namespace gage
 {
@@ -74,6 +76,9 @@ namespace gage
 		const int VERSION_MINOR = 0;
 		const int VERSION_BUILD = 2;
 		std::string BuildVerionString();
+
+		// current loaded map
+		std::unique_ptr<Map> m_currentMap;
 	};
 
 }

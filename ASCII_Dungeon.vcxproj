@@ -22,6 +22,7 @@
     <ClCompile Include="AsciiDungeon.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
     <ClCompile Include="Engine\GUI.cpp" />
+    <ClCompile Include="Engine\Map.cpp" />
     <ClCompile Include="Systems\InputHandler.cpp" />
     <ClCompile Include="Systems\MovementHandler.cpp" />
     <ClCompile Include="Systems\Renderer.cpp" />
@@ -35,6 +36,7 @@
     <ClInclude Include="Engine\Constants.hpp" />
     <ClInclude Include="Engine\Engine.hpp" />
     <ClInclude Include="Engine\GUI.hpp" />
+    <ClInclude Include="Engine\Map.hpp" />
     <ClInclude Include="Engine\MapSpace.hpp" />
     <ClInclude Include="Engine\State.hpp" />
     <ClInclude Include="Systems\InputHandler.hpp" />

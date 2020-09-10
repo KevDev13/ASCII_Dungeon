@@ -26,6 +26,7 @@ namespace gage
 			m_inputHandler = make_unique<InputHandler>();
 			m_movementHandler = make_unique<MovementHandler>();
 			m_gui = make_unique<GUI>();
+			m_currentMap = make_unique<Map>();
 		}
 
 		m_windowWidth = 0;
