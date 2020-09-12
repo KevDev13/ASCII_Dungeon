@@ -26,11 +26,27 @@ namespace gage
 
 	MapSpace Map::At(int x, int y) const
 	{
-		return m_mapData.at(Vector2D_t(x, y));
+		MapSpace ret;
+		try
+		{
+			ret = m_mapData.at(Vector2D_t(x, y));
+		}
+		catch (std::out_of_range& e)
+		{
+			return MapSpace();
+		}
+
+		return ret;
 	}
 
 	bool Map::Set(int x, int y, MapSpace space)
 	{
+		std::map<Vector2D_t, MapSpace>::iterator iter = m_mapData.find(Vector2D_t(x, y));
+		if (iter == m_mapData.end())
+		{
+			return false;
+		}
+		iter->second = space;
 		return true;
 	}
 
