@@ -30,8 +30,8 @@ namespace gage
 		void Reset();
 
 	protected:
-		std::map<Vector2D_t, MapSpace> m_mapData;
-		Vector2D_t m_topLeftCorner;
-		Vector2D_t m_bottomRightCorner;
+		std::map<Vector2D_t, MapSpace> m_mapData{};
+		Vector2D_t m_topLeftCorner{};
+		Vector2D_t m_bottomRightCorner{};
 	};
 }
