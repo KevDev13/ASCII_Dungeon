@@ -31,7 +31,7 @@ namespace gage
 		{
 			ret = m_mapData.at(Vector2D_t(x, y));
 		}
-		catch (std::out_of_range& e)
+		catch (std::out_of_range&)
 		{
 			return MapSpace();
 		}
