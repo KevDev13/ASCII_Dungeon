@@ -72,4 +72,19 @@ namespace gage
 			return left.y < right.y;
 		}
 	}
+
+	inline bool operator<=(const Vector2D_t& left, const Vector2D_t& right)
+	{
+		return (left < right) || (left == right);
+	}
+
+	inline bool operator>(const Vector2D_t& left, const Vector2D_t& right)
+	{
+		return !(left <= right);
+	}
+
+	inline bool operator>=(const Vector2D_t& left, const Vector2D_t& right)
+	{
+		return !(left < right);
+	}
 }
