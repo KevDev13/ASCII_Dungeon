@@ -78,7 +78,7 @@ namespace gage
 		std::string BuildVerionString();
 
 		// current loaded map
-		std::unique_ptr<Map> m_currentMap;
+		std::shared_ptr<Map> m_currentMap;
 	};
 
 }
