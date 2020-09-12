@@ -72,9 +72,9 @@ namespace gage
 		std::unique_ptr<GUI> m_gui;
 
 		// version info
-		const int VERSION_MAJOR = 0;
-		const int VERSION_MINOR = 0;
-		const int VERSION_BUILD = 2;
+		const int GAGE_VERSION_MAJOR = 0;
+		const int GAGE_VERSION_MINOR = 0;
+		const int GAGE_VERSION_PATCH = 2;
 		std::string BuildVerionString();
 
 		// current loaded map

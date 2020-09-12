@@ -210,8 +210,8 @@ namespace gage
 
 	std::string Engine::BuildVerionString()
 	{
-		return "v " + std::to_string(VERSION_MAJOR)
-			+ "." + std::to_string(VERSION_MINOR)
-			+ "." + std::to_string(VERSION_BUILD);
+		return "v " + std::to_string(GAGE_VERSION_MAJOR)
+			+ "." + std::to_string(GAGE_VERSION_MINOR)
+			+ "." + std::to_string(GAGE_VERSION_PATCH);
 	}
 }
