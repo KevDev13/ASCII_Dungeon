@@ -25,9 +25,13 @@ namespace gage
 		MapSpace At(int x, int y) const;
 		bool Set(int x, int y, MapSpace space);
 
+		inline std::tuple<Vector2D_t, Vector2D_t> GetCorners() const { return {m_topLeftCorner, m_bottomRightCorner}; }
+
 		void Reset();
 
 	protected:
 		std::map<Vector2D_t, MapSpace> m_mapData;
+		Vector2D_t m_topLeftCorner;
+		Vector2D_t m_bottomRightCorner;
 	};
 }
