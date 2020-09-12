@@ -26,16 +26,11 @@ namespace gage
 
 	MapSpace Map::At(int x, int y) const
 	{
-		return m_mapData[x][y];
+		return m_mapData.at(Vector2D_t(x, y));
 	}
 
 	bool Map::Set(int x, int y, MapSpace space)
 	{
-		if (x >= m_mapData.size() || y >= m_mapData[x].size())
-		{
-			return false;
-		}
-		m_mapData[x][y] = space;
 		return true;
 	}
 

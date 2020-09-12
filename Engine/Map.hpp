@@ -7,8 +7,9 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #pragma once
 
-#include <vector>
+#include <map>
 
+#include "Vector2D.hpp"
 #include "MapSpace.hpp"
 
 namespace gage
@@ -27,6 +28,6 @@ namespace gage
 		void Reset();
 
 	protected:
-		std::vector<std::vector<MapSpace>> m_mapData{};
+		std::map<Vector2D_t, MapSpace> m_mapData;
 	};
 }

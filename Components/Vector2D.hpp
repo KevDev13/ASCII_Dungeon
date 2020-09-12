@@ -59,4 +59,17 @@ namespace gage
 		left = left - right;
 		return left;
 	}
+
+	// left < right if the vector is above it in the screen (aka smaller y value). If same y, check x.
+	inline bool operator<(const Vector2D_t& left, const Vector2D_t& right)
+	{
+		if (left.y == right.y)
+		{
+			return left.x < right.x;
+		}
+		else
+		{
+			return left.y < right.y;
+		}
+	}
 }
