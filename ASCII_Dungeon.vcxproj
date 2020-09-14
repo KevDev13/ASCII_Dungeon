@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="AsciiDungeon.cpp" />
     <ClCompile Include="Engine\Engine.cpp" />
+    <ClCompile Include="Engine\GageException.cpp" />
     <ClCompile Include="Engine\GUI.cpp" />
     <ClCompile Include="Engine\Map.cpp" />
     <ClCompile Include="Systems\InputHandler.cpp" />
@@ -35,6 +36,7 @@
     <ClInclude Include="Components\VelocityComponent.hpp" />
     <ClInclude Include="Engine\Constants.hpp" />
     <ClInclude Include="Engine\Engine.hpp" />
+    <ClInclude Include="Engine\GageException.hpp" />
     <ClInclude Include="Engine\GUI.hpp" />
     <ClInclude Include="Engine\Map.hpp" />
     <ClInclude Include="Engine\MapSpace.hpp" />
