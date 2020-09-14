@@ -8,6 +8,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #pragma once
 
 #include <map>
+#include <optional>
 
 #include "Vector2D.hpp"
 #include "MapSpace.hpp"
@@ -22,7 +23,7 @@ namespace gage
 
 		bool Load(std::string fileName);
 
-		MapSpace At(int x, int y) const;
+		std::optional<MapSpace> At(int x, int y) const;
 		bool Set(int x, int y, MapSpace space);
 
 		inline std::tuple<Vector2D_t, Vector2D_t> GetCorners() const { return {m_topLeftCorner, m_bottomRightCorner}; }

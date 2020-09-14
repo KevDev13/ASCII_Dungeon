@@ -24,7 +24,7 @@ namespace gage
 		return true;
 	}
 
-	MapSpace Map::At(int x, int y) const
+	std::optional<MapSpace> Map::At(int x, int y) const
 	{
 		MapSpace ret;
 		try
@@ -33,7 +33,7 @@ namespace gage
 		}
 		catch (std::out_of_range&)
 		{
-			return MapSpace();
+			return {};
 		}
 
 		return ret;
