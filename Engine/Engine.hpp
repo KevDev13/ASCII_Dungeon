@@ -17,6 +17,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "GUI.hpp"
 #include "Map.hpp"
 #include "MapSpace.hpp"
+#include "GageException.hpp"
 
 namespace gage
 {
