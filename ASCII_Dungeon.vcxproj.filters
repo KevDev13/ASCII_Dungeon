@@ -51,7 +51,7 @@
     <ClCompile Include="Engine\Map.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\GageException.cpp">
+    <ClCompile Include="Engine\KageException.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,7 +98,7 @@
     <ClInclude Include="Engine\Map.hpp">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\GageException.hpp">
+    <ClInclude Include="Engine\KageException.hpp">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>

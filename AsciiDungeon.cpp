@@ -27,7 +27,7 @@ int main()
 	{
 		engine->SetInitialWindowProperties(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, MAXIMUM_FRAMES_PER_SECOND);
 	}
-	catch (kage::GageException& e)
+	catch (kage::KageException& e)
 	{
 	#ifdef _DEBUG
 		std::cout << e.what();
@@ -39,7 +39,7 @@ int main()
 	{
 		engine->Initialize();
 	}
-	catch (kage::GageException& e)
+	catch (kage::KageException& e)
 	{
 	#ifdef _DEBUG
 		std::cout << e.what();
@@ -50,7 +50,7 @@ int main()
 	{
 		engine->Main();
 	}
-	catch (kage::GageException& e)
+	catch (kage::KageException& e)
 	{
 	#ifdef _DEBUG
 		std::cout << e.what();

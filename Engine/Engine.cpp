@@ -46,7 +46,7 @@ namespace kage
 		// check for bad conditions
 		if (h <= 0 || w <= 0 || maxFps <= 30)
 		{
-			GAGE_EXCEPTION("Initial window properties invalid.");
+			KAGE_EXCEPTION("Initial window properties invalid.");
 			return;
 		}
 
@@ -62,7 +62,7 @@ namespace kage
 		// if window width is 0, that means SetInitialWindowProperties hasn't been called yet, so return false
 		if (m_windowWidth == 0)
 		{
-			GAGE_EXCEPTION("Engine properties not set when attempting to initialize.");
+			KAGE_EXCEPTION("Engine properties not set when attempting to initialize.");
 			return;
 		}
 
@@ -106,7 +106,7 @@ namespace kage
 		// verify engine has been intialized otherwise return false
 		if (!m_initialized)
 		{
-			GAGE_EXCEPTION("Engine not initialized.");
+			KAGE_EXCEPTION("Engine not initialized.");
 			return;
 		}
 
@@ -129,7 +129,7 @@ namespace kage
 					// i.e. in Main Menu, will display the menu, etc
 					if (!Render())
 					{
-						GAGE_EXCEPTION("Render error.");
+						KAGE_EXCEPTION("Render error.");
 						return;
 					}
 
