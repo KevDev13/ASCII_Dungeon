@@ -20,7 +20,7 @@ namespace gage
 	const char* GageException::what() const
 	{
 		std::ostringstream ret;
-		ret << "GAGE Exception: " << m_error;
+		ret << "GAGE Exception: " << m_error << std::endl;
 		m_buffer = ret.str();
 		return m_buffer.c_str();
 	}
