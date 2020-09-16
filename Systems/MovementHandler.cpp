@@ -9,7 +9,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "PositionComponent.hpp"
 #include "VelocityComponent.hpp"
 
-namespace gage
+namespace kage
 {
 	MovementHandler::MovementHandler()
 	{

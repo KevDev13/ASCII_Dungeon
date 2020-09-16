@@ -9,7 +9,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include "libtcod/libtcod.hpp"
 
-namespace gage
+namespace kage
 {
 	//extern const TCODColor DEFAULT_BACKGROUND_COLOR;
 	//extern const TCODColor DEFAULT_FOREGROUND_COLOR;

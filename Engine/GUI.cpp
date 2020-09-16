@@ -7,7 +7,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include "GUI.hpp"
 
-namespace gage
+namespace kage
 {
 	// set default constants
 	const TCODColor GUI::DEFAULT_BACKGROUND_COLOR = TCODColor::black;

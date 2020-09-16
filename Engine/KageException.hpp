@@ -10,14 +10,14 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include <exception>
 #include <string>
 
-namespace gage
+namespace kage
 {
-	class GageException : public std::exception
+	class KageException : public std::exception
 	{
 	public:
-		GageException(int line, std::string file, std::string error);
+		KageException(int line, std::string file, std::string error);
 		const char* what() const override;
-		std::string GetType() const { return "GAGE Exception"; }
+		std::string GetType() const { return "KAGE Exception"; }
 		int GetLine() const { return m_line; }
 		const std::string& GetFile() const { return m_file; }
 
@@ -28,5 +28,5 @@ namespace gage
 		mutable std::string m_buffer;
 	};
 
-#define GAGE_EXCEPTION(err) throw GageException(__LINE__, __FILE__, err);
+#define KAGE_EXCEPTION(err) throw KageException(__LINE__, __FILE__, err);
 }
