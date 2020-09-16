@@ -9,7 +9,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include <sstream>
 
-namespace gage
+namespace kage
 {
 	GageException::GageException(int line, std::string file, std::string error)
 		: m_line(line), m_file(file), m_error(error)

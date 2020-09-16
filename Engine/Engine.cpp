@@ -13,7 +13,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "VelocityComponent.hpp"
 #include "MouseStatus.hpp"
 
-namespace gage
+namespace kage
 {
 	Engine::Engine()
 	{

@@ -10,7 +10,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "libtcod/libtcod.hpp"
 #include "Vector2D.hpp"
 
-namespace gage
+namespace kage
 {
 	class GUI
 	{

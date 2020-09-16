@@ -7,7 +7,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include "Map.hpp"
 
-namespace gage
+namespace kage
 {
 	Map::Map()
 	{

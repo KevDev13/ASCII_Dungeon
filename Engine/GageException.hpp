@@ -10,7 +10,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include <exception>
 #include <string>
 
-namespace gage
+namespace kage
 {
 	class GageException : public std::exception
 	{

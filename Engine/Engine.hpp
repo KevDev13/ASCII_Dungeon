@@ -19,7 +19,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "MapSpace.hpp"
 #include "GageException.hpp"
 
-namespace gage
+namespace kage
 {
 	class Engine
 	{

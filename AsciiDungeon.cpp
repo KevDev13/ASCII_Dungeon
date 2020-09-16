@@ -21,13 +21,13 @@ const int MAXIMUM_FRAMES_PER_SECOND = 60;
 
 int main()
 {
-	std::unique_ptr<gage::Engine> engine = std::make_unique<gage::Engine>();
+	std::unique_ptr<kage::Engine> engine = std::make_unique<kage::Engine>();
 
 	try
 	{
 		engine->SetInitialWindowProperties(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, MAXIMUM_FRAMES_PER_SECOND);
 	}
-	catch (gage::GageException& e)
+	catch (kage::GageException& e)
 	{
 	#ifdef _DEBUG
 		std::cout << e.what();
@@ -39,7 +39,7 @@ int main()
 	{
 		engine->Initialize();
 	}
-	catch (gage::GageException& e)
+	catch (kage::GageException& e)
 	{
 	#ifdef _DEBUG
 		std::cout << e.what();
@@ -50,7 +50,7 @@ int main()
 	{
 		engine->Main();
 	}
-	catch (gage::GageException& e)
+	catch (kage::GageException& e)
 	{
 	#ifdef _DEBUG
 		std::cout << e.what();

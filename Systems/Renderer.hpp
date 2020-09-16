@@ -13,7 +13,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "entt/entt.hpp"
 #include "Vector2D.hpp"
 
-namespace gage
+namespace kage
 {
 	extern const Vector2D_t MAP_UPPER_LEFT_CORNER;
 	extern const Vector2D_t MAP_LOWER_RIGHT_CORNER;
