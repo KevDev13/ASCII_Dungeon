@@ -17,6 +17,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "GUI.hpp"
 #include "Map.hpp"
 #include "MapSpace.hpp"
+#include "GageException.hpp"
 
 namespace gage
 {
@@ -31,9 +32,9 @@ namespace gage
 		Engine();
 		~Engine();
 
-		bool SetInitialWindowProperties(int w, int h, std::string title, bool startFullscreen = false, int maxFps = DEFAULT_MAX_FPS);
-		bool Initialize();
-		bool Main();
+		void SetInitialWindowProperties(int w, int h, std::string title, bool startFullscreen = false, int maxFps = DEFAULT_MAX_FPS);
+		void Initialize();
+		void Main();
 
 	protected:
 		bool m_initialized;

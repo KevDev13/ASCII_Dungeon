@@ -41,12 +41,13 @@ namespace gage
 		TCOD_quit();
 	}
 
-	bool Engine::SetInitialWindowProperties(int w, int h, std::string title, bool startFullscreen, int maxFps)
+	void Engine::SetInitialWindowProperties(int w, int h, std::string title, bool startFullscreen, int maxFps)
 	{
 		// check for bad conditions
 		if (h <= 0 || w <= 0 || maxFps <= 30)
 		{
-			return false;
+			GAGE_EXCEPTION("Initial window properties invalid.");
+			return;
 		}
 
 		m_windowWidth = w;
@@ -54,16 +55,15 @@ namespace gage
 		m_windowTitle = title;
 		m_windowFullscreen = startFullscreen;
 		m_maxFps = maxFps;
-
-		return true;
 	}
 
-	bool Engine::Initialize()
+	void Engine::Initialize()
 	{
 		// if window width is 0, that means SetInitialWindowProperties hasn't been called yet, so return false
 		if (m_windowWidth == 0)
 		{
-			return false;
+			GAGE_EXCEPTION("Engine properties not set when attempting to initialize.");
+			return;
 		}
 
 		// setup font file
@@ -99,15 +99,15 @@ namespace gage
 
 		// set variable to indicate that engine as been initialized and return true
 		m_initialized = true;
-		return m_initialized;
 	}
 
-	bool Engine::Main()
+	void Engine::Main()
 	{
 		// verify engine has been intialized otherwise return false
 		if (!m_initialized)
 		{
-			return false;
+			GAGE_EXCEPTION("Engine not initialized.");
+			return;
 		}
 
 		m_currentState = State::PLAYING;
@@ -129,13 +129,13 @@ namespace gage
 					// i.e. in Main Menu, will display the menu, etc
 					if (!Render())
 					{
-						return false;
+						GAGE_EXCEPTION("Render error.");
+						return;
 					}
 
 					break;					
 			}
 		}
-		return true;
 	}
 
 	bool Engine::Render()
