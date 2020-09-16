@@ -7,18 +7,21 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include "GageException.hpp"
 
+#include <sstream>
+
 namespace gage
 {
-	GageException::GageException(int line, std::string file)
-		: m_line(line), m_file(file)
+	GageException::GageException(int line, std::string file, std::string error)
+		: m_line(line), m_file(file), m_error(error)
 	{
 
 	}
 
-	std::string GageException::GetInfo() const
+	const char* GageException::what() const
 	{
-		std::string ret = "GAGE Exception on line " + m_line;
-		ret += " in file " + m_file;
-		return ret;
+		std::ostringstream ret;
+		ret << "GAGE Exception: " << m_error;
+		m_buffer = ret.str();
+		return m_buffer.c_str();
 	}
 }

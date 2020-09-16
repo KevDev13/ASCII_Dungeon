@@ -15,8 +15,8 @@ namespace gage
 	class GageException : public std::exception
 	{
 	public:
-		GageException(int line, std::string file);
-		std::string GetInfo() const;
+		GageException(int line, std::string file, std::string error);
+		const char* what() const override;
 		std::string GetType() const { return "GAGE Exception"; }
 		int GetLine() const { return m_line; }
 		const std::string& GetFile() const { return m_file; }
@@ -24,5 +24,9 @@ namespace gage
 	protected:
 		int m_line;
 		std::string m_file;
+		std::string m_error;
+		mutable std::string m_buffer;
 	};
+
+#define GAGE_EXCEPTION(err) throw GageException(__LINE__, __FILE__, err);
 }
