@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AsciiDungeon.cpp" />
-    <ClCompile Include="Engine\Engine.cpp" />
+    <ClCompile Include="Engine\KAGE.cpp" />
     <ClCompile Include="Engine\KageException.cpp" />
     <ClCompile Include="Engine\GUI.cpp" />
     <ClCompile Include="Engine\Map.cpp" />
@@ -35,7 +35,7 @@
     <ClInclude Include="Components\Vector2D.hpp" />
     <ClInclude Include="Components\VelocityComponent.hpp" />
     <ClInclude Include="Engine\Constants.hpp" />
-    <ClInclude Include="Engine\Engine.hpp" />
+    <ClInclude Include="Engine\KAGE.hpp" />
     <ClInclude Include="Engine\KageException.hpp" />
     <ClInclude Include="Engine\GUI.hpp" />
     <ClInclude Include="Engine\Map.hpp" />

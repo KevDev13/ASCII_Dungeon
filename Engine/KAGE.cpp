@@ -5,7 +5,7 @@ Written by Kevin Garner. kg.dev@protonmail.com
 Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 */
 
-#include "Engine.hpp"
+#include "KAGE.hpp"
 #include "libtcod/libtcod.hpp"
 #include "Constants.hpp"
 #include "PositionComponent.hpp"
