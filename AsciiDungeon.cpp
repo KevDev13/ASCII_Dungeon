@@ -9,6 +9,10 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #include "Engine.hpp"
 
+#ifdef _DEBUG
+#include <iostream>
+#endif // DEBUG
+
 const int WINDOW_SIZE_WIDTH = 80;
 const int WINDOW_SIZE_HEIGHT = 50;
 const std::string WINDOW_TITLE = "ASCII Dungeon";
@@ -19,21 +23,38 @@ int main()
 {
 	std::unique_ptr<gage::Engine> engine = std::make_unique<gage::Engine>();
 
-	if (!engine->SetInitialWindowProperties(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, MAXIMUM_FRAMES_PER_SECOND))
+	try
 	{
-		return 3;
+		engine->SetInitialWindowProperties(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, MAXIMUM_FRAMES_PER_SECOND);
+	}
+	catch (gage::GageException& e)
+	{
+	#ifdef _DEBUG
+		std::cout << e.what();
+	#endif // _DEBUG
 	}
 
 	// initialize engine and if it fails, exit
-	if (!engine->Initialize())
+	try
 	{
-		return 1;
+		engine->Initialize();
+	}
+	catch (gage::GageException& e)
+	{
+	#ifdef _DEBUG
+		std::cout << e.what();
+	#endif // _DEBUG
 	}
 
-	if (!engine->Main())
+	try
 	{
-		return 2;
+		engine->Main();
 	}
-
+	catch (gage::GageException& e)
+	{
+	#ifdef _DEBUG
+		std::cout << e.what();
+	#endif // _DEBUG
+	}
 	return 0;
 }

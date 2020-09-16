@@ -32,9 +32,9 @@ namespace gage
 		Engine();
 		~Engine();
 
-		bool SetInitialWindowProperties(int w, int h, std::string title, bool startFullscreen = false, int maxFps = DEFAULT_MAX_FPS);
-		bool Initialize();
-		bool Main();
+		void SetInitialWindowProperties(int w, int h, std::string title, bool startFullscreen = false, int maxFps = DEFAULT_MAX_FPS);
+		void Initialize();
+		void Main();
 
 	protected:
 		bool m_initialized;
