@@ -14,17 +14,28 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "entt/entt.hpp"
 #include "libtcod/libtcod.hpp"
 
-// KAGE include files
+/* KAGE header files */
+
+// Constants... will likely eventually delete this
 #include "Constants.hpp"
-#include "PositionComponent.hpp"
-#include "RenderComponent.hpp"
-#include "VelocityComponent.hpp"
-#include "MouseStatus.hpp"
-#include "Renderer.hpp"
-#include "InputHandler.hpp"
-#include "MovementHandler.hpp"
+
+// Engine Files
+#include "KageException.hpp"
 #include "State.hpp"
 #include "GUI.hpp"
 #include "Map.hpp"
 #include "MapSpace.hpp"
-#include "KageException.hpp"
+
+// Custom Types
+#include "Vector2D.hpp"
+
+// Components
+#include "PositionComponent.hpp"
+#include "RenderComponent.hpp"
+#include "VelocityComponent.hpp"
+#include "MouseStatus.hpp"
+
+// Systems
+#include "Renderer.hpp"
+#include "InputHandler.hpp"
+#include "MovementHandler.hpp"
