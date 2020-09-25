@@ -10,6 +10,12 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include <memory>
 
 #include "entt/entt.hpp"
+#include "libtcod/libtcod.hpp"
+#include "Constants.hpp"
+#include "PositionComponent.hpp"
+#include "RenderComponent.hpp"
+#include "VelocityComponent.hpp"
+#include "MouseStatus.hpp"
 #include "Renderer.hpp"
 #include "InputHandler.hpp"
 #include "MovementHandler.hpp"
