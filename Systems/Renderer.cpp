@@ -37,12 +37,18 @@ namespace kage
 		}
 	}
 
+	void Renderer::SetRenderSpace(Vector2D_t tl, Vector2D_t br)
+	{
+		m_renderSpaceTopLeft = tl;
+		m_renderSpaceBottomRight = br;
+	}
+
 	void Renderer::RenderWorld(std::shared_ptr<entt::registry> reg) const
 	{
 		// for now we're just rendering a dark grey screen. Will eventually load the map and draw what is appropriate
-		for (int y = MAP_UPPER_LEFT_CORNER.y; y <= MAP_LOWER_RIGHT_CORNER.y; ++y)
+		for (int y = m_renderSpaceTopLeft.y; y <= m_renderSpaceBottomRight.y; ++y)
 		{
-			for (int x = MAP_UPPER_LEFT_CORNER.x; x <= MAP_LOWER_RIGHT_CORNER.x; ++x)
+			for (int x = m_renderSpaceTopLeft.x; x <= m_renderSpaceBottomRight.x; ++x)
 			{
 				// if the world uses any characters (i.e. for "texture" or something like that), do that here with putChar
 				TCODConsole::root->setCharBackground(x, y, TCODColor::darkerGrey);
@@ -71,10 +77,10 @@ namespace kage
 		Vector2D_t possibleScreenPosition = worldPosition;
 
 		// check that screen position is within the screen limits
-		if (possibleScreenPosition.x < MAP_UPPER_LEFT_CORNER.x ||
-			possibleScreenPosition.y < MAP_UPPER_LEFT_CORNER.y ||
-			possibleScreenPosition.x > MAP_LOWER_RIGHT_CORNER.x ||
-			possibleScreenPosition.y > MAP_LOWER_RIGHT_CORNER.y)
+		if (possibleScreenPosition.x < m_renderSpaceTopLeft.x ||
+			possibleScreenPosition.y < m_renderSpaceTopLeft.y ||
+			possibleScreenPosition.x > m_renderSpaceBottomRight.x ||
+			possibleScreenPosition.y > m_renderSpaceBottomRight.y)
 		{
 			return false;
 		}

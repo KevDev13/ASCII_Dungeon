@@ -16,9 +16,6 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 /* KAGE header files */
 
-// Constants... will likely eventually delete this
-#include "Constants.hpp"
-
 // Engine Files
 #include "KageException.hpp"
 #include "State.hpp"

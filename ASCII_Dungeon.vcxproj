@@ -33,7 +33,6 @@
     <ClInclude Include="Components\PositionComponent.hpp" />
     <ClInclude Include="Components\RenderComponent.hpp" />
     <ClInclude Include="Components\VelocityComponent.hpp" />
-    <ClInclude Include="Engine\Constants.hpp" />
     <ClInclude Include="Engine\KAGE.hpp" />
     <ClInclude Include="Engine\KageException.hpp" />
     <ClInclude Include="Engine\GUI.hpp" />

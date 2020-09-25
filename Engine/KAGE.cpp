@@ -77,6 +77,9 @@ namespace kage
 		TCODConsole::root->setDefaultBackground(defaultBackColor);
 		TCODConsole::root->setDefaultForeground(defaultForeColor);
 
+		// set render space for Renderer
+		m_renderer->SetRenderSpace(MAP_UPPER_LEFT_CORNER, MAP_LOWER_RIGHT_CORNER);
+
 		// initialize player entity
 		m_playerEntity = m_registry->create();
 		Vector2D_t playerStart = { 10, 10 };	// TODO: temporary, will remove later

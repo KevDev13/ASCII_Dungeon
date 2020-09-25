@@ -70,6 +70,10 @@ namespace kage
 
 		// current loaded map
 		std::shared_ptr<Map> m_currentMap;
+
+		// setup space in window where map will be displayed
+		const Vector2D_t MAP_UPPER_LEFT_CORNER = { 1, 1 };
+		const Vector2D_t MAP_LOWER_RIGHT_CORNER = { 47, 37 };
 	};
 
 }
