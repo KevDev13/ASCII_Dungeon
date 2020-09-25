@@ -1,5 +1,5 @@
 /*
-Main game engine
+Kevin's ASCII Game Engine
 
 Written by Kevin Garner. kg.dev@protonmail.com
 Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
