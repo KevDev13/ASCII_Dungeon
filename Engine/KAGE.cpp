@@ -34,8 +34,7 @@ namespace kage
 	{
 		TCOD_quit();
 	}
-
-	void Engine::SetInitialWindowProperties(int w, int h, std::string title, bool startFullscreen, int maxFps)
+	void Engine::Initialize(int w, int h, std::string title, bool startFullscreen, int maxFps)
 	{
 		// check for bad conditions
 		if (h <= 0 || w <= 0 || maxFps <= 30)
@@ -49,16 +48,6 @@ namespace kage
 		m_windowTitle = title;
 		m_windowFullscreen = startFullscreen;
 		m_maxFps = maxFps;
-	}
-
-	void Engine::Initialize()
-	{
-		// if window width is 0, that means SetInitialWindowProperties hasn't been called yet, so return false
-		if (m_windowWidth == 0)
-		{
-			KAGE_EXCEPTION("Engine properties not set when attempting to initialize.");
-			return;
-		}
 
 		// setup font file
 		TCODConsole::setCustomFont(m_gui->GetDefaultFontFile().c_str());

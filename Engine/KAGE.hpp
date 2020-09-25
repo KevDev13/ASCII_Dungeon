@@ -22,8 +22,7 @@ namespace kage
 		Engine();
 		~Engine();
 
-		void SetInitialWindowProperties(int w, int h, std::string title, bool startFullscreen = false, int maxFps = DEFAULT_MAX_FPS);
-		void Initialize();
+		void Initialize(int w, int h, std::string title, bool startFullscreen = false, int maxFps = DEFAULT_MAX_FPS);
 		void Main();
 
 	protected:

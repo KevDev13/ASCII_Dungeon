@@ -23,21 +23,10 @@ int main()
 {
 	std::unique_ptr<kage::Engine> engine = std::make_unique<kage::Engine>();
 
-	try
-	{
-		engine->SetInitialWindowProperties(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, MAXIMUM_FRAMES_PER_SECOND);
-	}
-	catch (kage::KageException& e)
-	{
-	#ifdef _DEBUG
-		std::cout << e.what();
-	#endif // _DEBUG
-	}
-
 	// initialize engine and if it fails, exit
 	try
 	{
-		engine->Initialize();
+		engine->Initialize(WINDOW_SIZE_WIDTH, WINDOW_SIZE_HEIGHT, WINDOW_TITLE, WINDOW_START_FULLSCREEN, MAXIMUM_FRAMES_PER_SECOND);
 	}
 	catch (kage::KageException& e)
 	{
