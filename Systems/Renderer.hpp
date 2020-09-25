@@ -34,7 +34,7 @@ namespace kage
 		void RenderActors(std::shared_ptr<entt::registry> reg) const;
 		void RenderWorld(std::shared_ptr<entt::registry> reg) const;
 
-		// TODO: for the mapping of map space to TCODColor, use an array of TCODColor here
+		
 	};
 
 }
