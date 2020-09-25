@@ -37,6 +37,7 @@
     <ClInclude Include="Engine\KAGE.hpp" />
     <ClInclude Include="Engine\KageException.hpp" />
     <ClInclude Include="Engine\GUI.hpp" />
+    <ClInclude Include="Engine\KageIncludes.hpp" />
     <ClInclude Include="Engine\Map.hpp" />
     <ClInclude Include="Engine\MapSpace.hpp" />
     <ClInclude Include="Engine\State.hpp" />

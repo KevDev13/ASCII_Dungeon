@@ -7,23 +7,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 
 #pragma once
 
-#include <memory>
-
-#include "entt/entt.hpp"
-#include "libtcod/libtcod.hpp"
-#include "Constants.hpp"
-#include "PositionComponent.hpp"
-#include "RenderComponent.hpp"
-#include "VelocityComponent.hpp"
-#include "MouseStatus.hpp"
-#include "Renderer.hpp"
-#include "InputHandler.hpp"
-#include "MovementHandler.hpp"
-#include "State.hpp"
-#include "GUI.hpp"
-#include "Map.hpp"
-#include "MapSpace.hpp"
-#include "KageException.hpp"
+#include "KageIncludes.hpp"
 
 namespace kage
 {
