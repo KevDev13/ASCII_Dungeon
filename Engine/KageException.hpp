@@ -28,5 +28,5 @@ namespace kage
 		mutable std::string m_buffer;
 	};
 
-#define KAGE_EXCEPTION(err) throw KageException(__LINE__, __FILE__, err);
+#define KAGE_EXCEPTION(err) throw KageException(__LINE__, __FILE__, err)
 }
