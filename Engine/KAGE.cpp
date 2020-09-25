@@ -78,7 +78,7 @@ namespace kage
 		TCODConsole::root->setDefaultForeground(defaultForeColor);
 
 		// set render space for Renderer
-		m_renderer->SetRenderSpace(MAP_UPPER_LEFT_CORNER, MAP_LOWER_RIGHT_CORNER);
+		m_renderer->SetRenderSpace(MAP_TOP_LEFT_CORNER, MAP_BOTTOM_RIGHT_CORNER);
 
 		// initialize player entity
 		m_playerEntity = m_registry->create();
@@ -147,9 +147,9 @@ namespace kage
 		// draw GUI components
 		
 		// first, get coordinates for rectangle around map
-		Vector2D_t upperLeft = MAP_UPPER_LEFT_CORNER;
+		Vector2D_t upperLeft = MAP_TOP_LEFT_CORNER;
 		upperLeft -= {1, 1};
-		Vector2D_t lowerRight = MAP_LOWER_RIGHT_CORNER;
+		Vector2D_t lowerRight = MAP_BOTTOM_RIGHT_CORNER;
 		lowerRight += {1, 1};
 
 		m_gui->DrawRectangle(upperLeft, lowerRight, false);
