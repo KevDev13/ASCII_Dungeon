@@ -61,7 +61,7 @@ namespace kage
 	}
 
 	// left < right if the vector is above it in the screen (aka smaller y value). If same y, check x.
-	inline bool operator<(const Vector2D_t& left, const Vector2D_t& right)
+	inline bool operator< (const Vector2D_t& left, const Vector2D_t& right)
 	{
 		if (left.y == right.y)
 		{
@@ -73,17 +73,17 @@ namespace kage
 		}
 	}
 
-	inline bool operator<=(const Vector2D_t& left, const Vector2D_t& right)
+	inline bool operator<= (const Vector2D_t& left, const Vector2D_t& right)
 	{
 		return (left < right) || (left == right);
 	}
 
-	inline bool operator>(const Vector2D_t& left, const Vector2D_t& right)
+	inline bool operator> (const Vector2D_t& left, const Vector2D_t& right)
 	{
 		return !(left <= right);
 	}
 
-	inline bool operator>=(const Vector2D_t& left, const Vector2D_t& right)
+	inline bool operator>= (const Vector2D_t& left, const Vector2D_t& right)
 	{
 		return !(left < right);
 	}
