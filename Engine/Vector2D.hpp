@@ -60,6 +60,12 @@ namespace kage
 		return left;
 	}
 
+	inline Vector2D_t& operator*= (Vector2D_t& left, const int& right)
+	{
+		left = left * right;
+		return left;
+	}
+
 	// left < right if the vector is above it in the screen (aka smaller y value). If same y, check x.
 	inline bool operator< (const Vector2D_t& left, const Vector2D_t& right)
 	{
