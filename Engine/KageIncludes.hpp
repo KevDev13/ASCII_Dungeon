@@ -13,6 +13,8 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 // third party libraries
 #include "entt/entt.hpp"
 #include "libtcod/libtcod.hpp"
+#include "nlohmann/json.hpp"
+using json = nlohmann::json;
 
 /* KAGE header files */
 
