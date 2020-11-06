@@ -20,6 +20,7 @@ namespace kage
 
 	void Renderer::RenderActors(std::shared_ptr<entt::registry> reg) const
 	{
+		// get all entities with a Position and Render component
 		auto comps = reg->view<PositionComponent, RenderComponent>();
 
 		for (auto entity : comps)
