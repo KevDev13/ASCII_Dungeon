@@ -20,6 +20,7 @@ namespace kage
 
 	void MovementHandler::ProcessMovement(std::shared_ptr<entt::registry> reg) const
 	{
+		// get all components with a position and velocity component
 		auto comps = reg->view<PositionComponent, VelocityComponent>();
 
 		for (auto entity : comps)
