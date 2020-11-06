@@ -29,4 +29,5 @@ namespace kage
 	};
 
 #define KAGE_EXCEPTION(err) throw KageException(__LINE__, __FILE__, err)
+#define KAGE_EXCEPTION() throw KageException(__LINE__, __FILE__, "General Exception")
 }
