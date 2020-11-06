@@ -128,6 +128,7 @@ namespace kage
 	{
 		if (!TCODConsole::root)
 		{
+			KAGE_EXCEPTION("TCOD Console Root not found.");
 			return false;
 		}
 
