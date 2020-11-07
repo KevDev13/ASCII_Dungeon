@@ -30,21 +30,25 @@ namespace kage
 		// get possible entities the player/NPC could collide with.
 		auto possibleCollisions = reg->view<PositionComponent>();
 
+		// TODO: Also check map spaces for collisions
+
 		// go through each entity
 		for (auto entity : compToCheck)
 		{
-			// Get position and velocity. Position is const so we don't accidentally change it.
-			const auto pos = compToCheck.get<PositionComponent>(entity);
-			auto vel = compToCheck.get<VelocityComponent>(entity);
-			// check if collision exists, and if so, set velocity to 0, 0
-			Vector2D_t newPosition = pos.position + vel.velocity;
-			for (auto entityToCheck : possibleCollisions)
+			// Get position and velocity components
+			auto [pos, vel] = compToCheck.get<PositionComponent, VelocityComponent>(entity);
+			// if velocity is not already 0, check if collision exists, and if so, set velocity to 0, 0
+			if (vel.velocity != Vector2D_t(0, 0))
 			{
-				const auto checkPos = possibleCollisions.get<PositionComponent>(entityToCheck);
-				// if collision, set vel to 0
-				if (newPosition == checkPos.position)
+				Vector2D_t newPosition = pos.position + vel.velocity;
+				for (auto entityToCheck : possibleCollisions)
 				{
-					vel = { 0, 0 };
+					const auto checkPos = possibleCollisions.get<PositionComponent>(entityToCheck);
+					// if collision, set vel to 0
+					if (newPosition == checkPos.position)
+					{
+						vel.velocity = { 0, 0 };
+					}
 				}
 			}
 		}
