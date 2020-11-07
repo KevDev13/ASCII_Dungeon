@@ -21,6 +21,7 @@ namespace kage
 			m_movementHandler = make_unique<MovementHandler>();
 			m_gui = make_unique<GUI>();
 			m_currentMap = make_shared<Map>();
+			m_NpcEntities = make_shared<vector<entt::entity>>();
 		}
 
 		m_windowWidth = 0;
@@ -122,6 +123,19 @@ namespace kage
 					break;					
 			}
 		}
+	}
+
+	entt::entity Engine::CreateNPC()
+	{
+		entt::entity npc = m_registry->create();
+		// add all NPC components here
+		m_registry->emplace<PositionComponent>(npc);
+		m_registry->emplace<VelocityComponent>(npc);
+		m_registry->emplace<RenderComponent>(npc);
+		// TODO: add AI component;
+
+		// add NPC to NPC entity list
+		m_NpcEntities->push_back(npc);
 	}
 
 	bool Engine::Render()

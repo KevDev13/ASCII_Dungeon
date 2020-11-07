@@ -49,6 +49,10 @@ namespace kage
 		entt::entity m_playerEntity;
 		const char PLAYER_DISPLAY_CHAR = 1;	// 1 = smiley face with the png/bitmap_col.png file.
 
+		// NPC Entities
+		std::shared_ptr<std::vector<entt::entity>> m_NpcEntities;
+		entt::entity CreateNPC();
+
 		// mouse entity
 		entt::entity m_mouseEntity;
 
