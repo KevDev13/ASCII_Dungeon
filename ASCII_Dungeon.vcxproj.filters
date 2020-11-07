@@ -54,6 +54,9 @@
     <ClCompile Include="Engine\KAGE.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Systems\CollisionHandler.cpp">
+      <Filter>Source Files\Systems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Systems\Renderer.hpp">
@@ -100,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="Engine\KageIncludes.hpp">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Systems\CollisionHandler.hpp">
+      <Filter>Header Files\Systems</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

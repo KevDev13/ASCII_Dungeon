@@ -38,3 +38,4 @@ using json = nlohmann::json;
 #include "Renderer.hpp"
 #include "InputHandler.hpp"
 #include "MovementHandler.hpp"
+#include "CollisionHandler.hpp"

@@ -44,6 +44,7 @@ namespace kage
 		std::unique_ptr<Renderer> m_renderer;
 		std::unique_ptr<InputHandler> m_inputHandler;
 		std::unique_ptr<MovementHandler> m_movementHandler;
+		std::unique_ptr<CollisionHandler> m_collisionHandler;
 
 		// Player entity
 		entt::entity m_playerEntity;
