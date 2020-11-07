@@ -51,7 +51,7 @@ namespace kage
 
 		// NPC Entities
 		std::shared_ptr<std::vector<entt::entity>> m_NpcEntities;
-		entt::entity CreateNPC();
+		entt::entity CreateNPC(Vector2D_t pos, const char displayChar, const TCODColor backColor, const TCODColor foreColor);
 
 		// mouse entity
 		entt::entity m_mouseEntity;

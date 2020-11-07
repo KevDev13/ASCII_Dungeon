@@ -77,6 +77,9 @@ namespace kage
 		m_registry->emplace<VelocityComponent>(m_playerEntity);
 		m_registry->emplace<RenderComponent>(m_playerEntity, PLAYER_DISPLAY_CHAR, defaultBackColor, TCODColor::green);
 
+		// initialize test NPC
+		entt::entity npc = CreateNPC({ 5, 5 }, 2, defaultBackColor, defaultForeColor);
+
 		// add mouse component
 		m_mouseEntity = m_registry->create();
 		m_registry->emplace<MouseStatus>(m_mouseEntity);
@@ -125,17 +128,19 @@ namespace kage
 		}
 	}
 
-	entt::entity Engine::CreateNPC()
+	entt::entity Engine::CreateNPC(Vector2D_t pos, const char displayChar, const TCODColor backColor, const TCODColor foreColor)
 	{
 		entt::entity npc = m_registry->create();
 		// add all NPC components here
-		m_registry->emplace<PositionComponent>(npc);
+		m_registry->emplace<PositionComponent>(npc, pos);
 		m_registry->emplace<VelocityComponent>(npc);
-		m_registry->emplace<RenderComponent>(npc);
+		m_registry->emplace<RenderComponent>(npc, displayChar, backColor, foreColor);
 		// TODO: add AI component;
 
 		// add NPC to NPC entity list
 		m_NpcEntities->push_back(npc);
+
+		return npc;
 	}
 
 	bool Engine::Render()
