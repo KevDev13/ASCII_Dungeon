@@ -77,8 +77,7 @@ namespace kage
 		m_registry->emplace<PositionComponent>(m_playerEntity, playerStart);
 		m_registry->emplace<VelocityComponent>(m_playerEntity);
 		m_registry->emplace<RenderComponent>(m_playerEntity, PLAYER_DISPLAY_CHAR, defaultBackColor, TCODColor::green);
-		m_registry->emplace<DisplayInfo>(m_playerEntity);
-		m_registry->get<DisplayInfo>(m_playerEntity).name = "This is you";
+		m_registry->emplace<DisplayInfo>(m_playerEntity, "Player");
 
 		// initialize test NPC
 		entt::entity npc = CreateNPC({ 5, 5 }, 2, defaultBackColor, defaultForeColor);
@@ -140,8 +139,7 @@ namespace kage
 		m_registry->emplace<VelocityComponent>(npc);
 		m_registry->emplace<RenderComponent>(npc, displayChar, backColor, foreColor);
 		m_registry->emplace<Collider>(npc);
-		m_registry->emplace<DisplayInfo>(npc);
-		m_registry->get<DisplayInfo>(npc).name = "Test NPC";
+		m_registry->emplace<DisplayInfo>(npc, "Test NPC");
 		// TODO: add AI component;
 
 		// add NPC to NPC entity list

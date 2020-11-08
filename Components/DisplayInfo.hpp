@@ -16,5 +16,6 @@ namespace kage
 		std::string name;
 		
 		DisplayInfo() = default;
+		DisplayInfo(std::string n) : name(n) {}
 	};
 }
