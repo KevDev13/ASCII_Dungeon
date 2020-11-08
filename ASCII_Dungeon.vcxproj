@@ -31,6 +31,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Components\Collider.hpp" />
+    <ClInclude Include="Components\DisplayInfo.hpp" />
     <ClInclude Include="Components\MouseStatus.hpp" />
     <ClInclude Include="Components\PositionComponent.hpp" />
     <ClInclude Include="Components\RenderComponent.hpp" />

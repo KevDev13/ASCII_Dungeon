@@ -77,6 +77,8 @@ namespace kage
 		m_registry->emplace<PositionComponent>(m_playerEntity, playerStart);
 		m_registry->emplace<VelocityComponent>(m_playerEntity);
 		m_registry->emplace<RenderComponent>(m_playerEntity, PLAYER_DISPLAY_CHAR, defaultBackColor, TCODColor::green);
+		m_registry->emplace<DisplayInfo>(m_playerEntity);
+		m_registry->get<DisplayInfo>(m_playerEntity).name = "This is you";
 
 		// initialize test NPC
 		entt::entity npc = CreateNPC({ 5, 5 }, 2, defaultBackColor, defaultForeColor);
@@ -138,6 +140,8 @@ namespace kage
 		m_registry->emplace<VelocityComponent>(npc);
 		m_registry->emplace<RenderComponent>(npc, displayChar, backColor, foreColor);
 		m_registry->emplace<Collider>(npc);
+		m_registry->emplace<DisplayInfo>(npc);
+		m_registry->get<DisplayInfo>(npc).name = "Test NPC";
 		// TODO: add AI component;
 
 		// add NPC to NPC entity list
@@ -197,14 +201,21 @@ namespace kage
 			auto& mouseStatus = m_registry->get<MouseStatus>(m_mouseEntity);
 			Vector2D_t mousePosWhenClicked = mouseStatus.position;	// this is only used for info on where the mouse was when user clicked the mouse button
 
-			// TODO: this is just a demo, eventually update to show info for any actor/anything else in the world
 			Vector2D_t playerPosition = m_registry->get<PositionComponent>(m_playerEntity).position;
-			if (playerPosition == mousePosition)
+
+			// display the text for whatever the mouse is hovering over
+			auto displayComponents = m_registry->view<PositionComponent, DisplayInfo>();
+			for (auto entity : displayComponents)
 			{
-				m_gui->DisplayText(Vector2D_t(10, 49), "This is you");
+				const auto [pos, dispName] = m_registry->get<PositionComponent, DisplayInfo>(entity);
+				if (pos.position == mousePosition)
+				{
+					m_gui->DisplayText(Vector2D_t(10, 49), dispName.name);
+				}
 			}
 
-			// if mouse was clicked and mouse was over player. TODO: update this to check for anything clickable
+			// if mouse was clicked and mouse was over player. 
+			// TODO: update this to check for anything clickable
 			if (mouseStatus.clicked && mousePosWhenClicked == playerPosition)
 			{
 				m_gui->DisplayText(Vector2D_t(10, 48), "You clicked yourself!");
