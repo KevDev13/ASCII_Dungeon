@@ -49,6 +49,7 @@ namespace kage
 		// Player entity
 		entt::entity m_playerEntity;
 		const char PLAYER_DISPLAY_CHAR = 1;	// 1 = smiley face with the png/bitmap_col.png file.
+		const TCODColor PLAYER_FORE_COLOR = TCODColor::green;
 
 		// NPC Entities
 		std::shared_ptr<std::vector<entt::entity>> m_NpcEntities;

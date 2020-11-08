@@ -76,7 +76,7 @@ namespace kage
 		Vector2D_t playerStart = { 10, 10 };	// TODO: temporary, will remove later
 		m_registry->emplace<PositionComponent>(m_playerEntity, playerStart);
 		m_registry->emplace<VelocityComponent>(m_playerEntity);
-		m_registry->emplace<RenderComponent>(m_playerEntity, PLAYER_DISPLAY_CHAR, defaultBackColor, TCODColor::green);
+		m_registry->emplace<RenderComponent>(m_playerEntity, PLAYER_DISPLAY_CHAR, defaultBackColor, PLAYER_FORE_COLOR);
 		m_registry->emplace<DisplayInfo>(m_playerEntity, "Player");
 
 		// initialize test NPC
