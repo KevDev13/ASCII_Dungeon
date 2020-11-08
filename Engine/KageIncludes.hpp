@@ -33,6 +33,7 @@ using json = nlohmann::json;
 #include "RenderComponent.hpp"
 #include "VelocityComponent.hpp"
 #include "MouseStatus.hpp"
+#include "Collider.hpp"
 
 // Systems
 #include "Renderer.hpp"

@@ -137,6 +137,7 @@ namespace kage
 		m_registry->emplace<PositionComponent>(npc, pos);
 		m_registry->emplace<VelocityComponent>(npc);
 		m_registry->emplace<RenderComponent>(npc, displayChar, backColor, foreColor);
+		m_registry->emplace<Collider>(npc);
 		// TODO: add AI component;
 
 		// add NPC to NPC entity list

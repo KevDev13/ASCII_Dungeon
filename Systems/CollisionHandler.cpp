@@ -10,6 +10,7 @@ Code repo located at: https://github.com/KevDev13/ASCII_Dungeon
 #include "PositionComponent.hpp"
 #include "VelocityComponent.hpp"
 #include "RenderComponent.hpp"
+#include "Collider.hpp"
 
 namespace kage
 {
@@ -28,8 +29,8 @@ namespace kage
 		// get all entities with a Position and Velocity component
 		auto compToCheck = reg->view<PositionComponent, VelocityComponent>();
 		// get possible entities the player/NPC could collide with.
-		// TODO: this gets everything with a position component. Will need to make it more specific eventually so not everything is returned.
-		auto possibleCollisions = reg->view<PositionComponent>();
+		// TODO: this gets everything with a position component and collider
+		auto possibleCollisions = reg->view<PositionComponent, Collider>();
 
 		// TODO: Also check map spaces for collisions
 

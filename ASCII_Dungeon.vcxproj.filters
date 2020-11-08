@@ -107,5 +107,8 @@
     <ClInclude Include="Systems\CollisionHandler.hpp">
       <Filter>Header Files\Systems</Filter>
     </ClInclude>
+    <ClInclude Include="Components\Collider.hpp">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
