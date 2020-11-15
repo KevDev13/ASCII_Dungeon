@@ -70,7 +70,7 @@ namespace kage
 		// version info
 		const int GAGE_VERSION_MAJOR = 0;
 		const int GAGE_VERSION_MINOR = 0;
-		const int GAGE_VERSION_PATCH = 2;
+		const int GAGE_VERSION_PATCH = 3;
 		std::string BuildVerionString();
 
 		// current loaded map
