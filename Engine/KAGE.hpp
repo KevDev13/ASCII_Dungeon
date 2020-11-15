@@ -67,7 +67,7 @@ namespace kage
 		// GUI class
 		std::unique_ptr<GUI> m_gui;
 
-		// version info
+		// version info & function to build string
 		const int GAGE_VERSION_MAJOR = 0;
 		const int GAGE_VERSION_MINOR = 0;
 		const int GAGE_VERSION_PATCH = 3;
