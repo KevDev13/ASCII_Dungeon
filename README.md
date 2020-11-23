@@ -6,4 +6,4 @@ Still very much so a work in progress.
 
 Screenshot (it's not much currently):
 
-![It's not much but it's mine](https://github.com/KevDev13/ASCII_Dungeon/blob/master/Screenshots/screenshot_v0_0_2.jpg?raw=true)
+![It's not much but it's mine](https://github.com/KevDev13/ASCII_Dungeon/blob/master/Screenshots/screenshot_v0_0_3.jpg?raw=true)
